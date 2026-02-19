@@ -13,12 +13,30 @@
 
 <style>
 :root {
+    /* Brand Colors */
     --primary: #0B1F3B;
     --accent: #C6A14A;
     --light: #f5f7fa;
-    --text: #1e293b;
-    --nav-height: 70px;
     --bg-alt: #f8f9fb;
+    --text-main: #1e293b;
+    
+    /* Design Tokens: Spacing System */
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2.5rem;
+    
+    /* Design Tokens: Elevation System */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Design Tokens: Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    
+    /* Design Tokens: Typography Colors */
+    --color-text-muted: #64748b;
+
+    /* Layout */
+    --nav-height: 70px;
     --font-main: 'Inter', sans-serif;
 }
 
@@ -37,7 +55,7 @@ body {
     font-weight: 400;
     line-height: 1.7;
     background-color: var(--light);
-    color: var(--text);
+    color: var(--text-main);
     padding-top: var(--nav-height);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -53,7 +71,6 @@ body {
     padding: 100px 0; 
 }
 
-/* Soft Gradient Separator */
 .section-separator {
     margin-top: 60px;
     width: 100%;
@@ -63,7 +80,7 @@ body {
 }
 
 /* =========================================
-   TYPOGRAPHY SYSTEM (UNIFIED & CENTERED)
+   TYPOGRAPHY SYSTEM
    ========================================= */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
@@ -71,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
     line-height: 1.25;
     letter-spacing: -0.02em;
-    text-align: center; /* UNIFIED: Centered on all screens */
+    text-align: center; /* Unified Centering */
 }
 
 h1 {
@@ -80,27 +97,22 @@ h1 {
     line-height: 1.15;
 }
 
-/* UNIFIED H2: Removed left border, added centered accent line */
 h2 {
     font-size: 1.875rem;
     font-weight: 600;
     margin-top: 3.5rem;
-    border-left: none; /* Removed */
-    padding-left: 0;    /* Removed */
-    line-height: 1.3;
-    position: relative;
     padding-bottom: 15px;
-    display: inline-block; /* Allows the border to fit text width */
+    display: inline-block;
+    position: relative;
 }
 
-/* The decorative accent line under H2 */
 h2::after {
     content: '';
     display: block;
     width: 60px;
     height: 3px;
     background-color: var(--accent);
-    margin: 10px auto 0; /* Centers the line */
+    margin: 10px auto 0;
     border-radius: 2px;
 }
 
@@ -123,7 +135,7 @@ p {
 ul.bullet-list {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
-    text-align: left; /* List content remains left for readability */
+    text-align: left;
 }
 ul.bullet-list li {
     margin-bottom: 0.75rem;
@@ -132,32 +144,103 @@ ul.bullet-list li {
 }
 
 /* =========================================
-   MODERN EXECUTIVE CTA BUTTONS (Updated)
+   VALUE PROPOSITION GRID (DESIGN SYSTEM)
+   ========================================= */
+.grid--auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align for executive impact */
+    text-align: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative top accent for card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #dfc078);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(198, 161, 74, 0.3);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card__icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card__icon {
+    transform: scale(1.1);
+}
+
+.card__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.card__body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+/* =========================================
+   MODERN EXECUTIVE CTA BUTTONS
    ========================================= */
 .btn {
     font-family: var(--font-main);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 32px; /* Increased horizontal padding for pill shape */
+    padding: 14px 32px;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 50px; /* Pill shape */
-    border: 2px solid transparent; /* Default border setup */
+    border-radius: 50px;
+    border: 2px solid transparent;
     cursor: pointer;
     letter-spacing: -0.01em;
-    
-    /* Modern cubic-bezier for smooth, luxury transitions */
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.btn i {
-    margin-right: 10px;
-    font-size: 1rem; /* Slightly larger icon for better balance */
-}
+.btn i { margin-right: 10px; font-size: 1rem; }
 
-/* Primary: Download CV */
 .btn-primary {
     background-color: var(--primary);
     color: white;
@@ -167,12 +250,10 @@ ul.bullet-list li {
 .btn-primary:hover {
     background-color: transparent;
     color: var(--primary);
-    /* Subtle lift and shadow */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(11, 31, 59, 0.2);
 }
 
-/* Secondary: Schedule */
 .btn-secondary {
     background-color: transparent;
     color: var(--primary);
@@ -186,7 +267,6 @@ ul.bullet-list li {
     box-shadow: 0 4px 12px rgba(11, 31, 59, 0.2);
 }
 
-/* Tertiary: LinkedIn (Accent) */
 .btn-accent {
     background-color: transparent;
     color: var(--accent);
@@ -199,7 +279,6 @@ ul.bullet-list li {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(198, 161, 74, 0.3);
 }
-
 
 /* =========================================
    METRIC CARDS
@@ -278,7 +357,7 @@ ul.bullet-list li {
     transition: all 0.2s ease;
     box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     margin-bottom: 0;
-    text-align: left; /* Skills text aligned left for readability */
+    text-align: left;
 }
 
 .skill-list li:hover {
@@ -334,7 +413,7 @@ ul.bullet-list li {
 .hero .container {
     max-width: 900px;
     padding: 40px 20px;
-    text-align: center; /* CHANGED: Centering Hero text */
+    text-align: center;
     position: relative;
     z-index: 1;
 }
@@ -369,7 +448,7 @@ ul.bullet-list li {
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 1.5rem;
-    justify-content: center; /* Center buttons on mobile/desktop */
+    justify-content: center;
     animation-delay: 0.8s; 
     opacity: 0; 
 }
@@ -402,7 +481,7 @@ ul.bullet-list li {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     height: 100%;
-    text-align: left; /* Card content remains left-aligned for reading */
+    text-align: left;
 }
 
 .entry-card:hover {
@@ -418,10 +497,7 @@ ul.bullet-list li {
     font-size: 1.3rem;
     color: var(--primary);
     font-weight: 700;
-    /* Inherits text-align: center from global h3, but we override below for card consistency if preferred */
-    /* If you want card titles centered, remove this next line. If left, keep it. */
-    /* User requested 'unify all headlines', so we keep it centered to follow the rule strictly. */
-    /* However, for cards, left is usually better. Let's leave it centered to strictly follow the prompt "Unify all headlines". */ 
+    text-align: left; /* Overriding global center for readability in cards */
 }
 
 .entry-card ul { margin-bottom: 0; }
@@ -435,7 +511,7 @@ ul.bullet-list li {
 .contact-item {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center contact items */
+    justify-content: center;
     margin-bottom: 1.25rem;
     font-size: 1.05rem;
     font-weight: 500;
@@ -477,7 +553,7 @@ ul.bullet-list li {
     font-weight: 500;
     padding: 10px 20px;
     border: 1px solid #cbd5e1;
-    border-radius: 4px; /* Keeping square/rounded for social links to distinguish from CTAs */
+    border-radius: 4px;
     transition: all 0.3s ease;
     font-size: 0.95rem;
 }
@@ -622,7 +698,7 @@ ul.bullet-list li {
     
     h1 { font-size: 2rem; letter-spacing: -0.01em; }
     h2 { font-size: 1.5rem; display: block; width: 100%; }
-    h2::after { margin: 10px auto 0; } /* Ensure line remains centered */
+    h2::after { margin: 10px auto 0; }
     
     .nav-logo { font-size: 1.25rem; }
     .hamburger { display: block; z-index: 1001; }
@@ -673,6 +749,10 @@ ul.bullet-list li {
     .contact-item i { margin-right: 0; margin-bottom: 8px; }
     
     .section-separator { margin-top: 40px; }
+
+    /* Card Adjustment for Mobile */
+    .card { padding: 2rem; }
+    .card__title { font-size: 1.25rem; }
 }
 </style>
 </head>
@@ -719,24 +799,49 @@ ul.bullet-list li {
     </div>
 </section>
 
-<!-- Professional Profile Section -->
+<!-- Professional Profile Section (REFACTORED) -->
 <section id="profile" class="content-section">
     <div class="container">
         <h2>Professional Profile</h2>
-        <p>I am a senior Human Resources practitioner with extensive experience in UN system operations, humanitarian missions, and international development environments.</p>
-        <p>My expertise spans:</p>
-        <ul class="bullet-list">
-            <li>Strategic HR leadership</li>
-            <li>International recruitment & talent acquisition</li>
-            <li>Organizational change management</li>
-            <li>Crisis response staffing</li>
-            <li>HR systems optimization</li>
-            <li>Policy development & compliance</li>
-            <li>Staff welfare and emergency coordination</li>
-        </ul>
-        <p>Throughout my career, I have supported complex field operations, peacekeeping missions, and large-scale humanitarian responses, ensuring that workforce systems remain resilient, compliant, and strategically aligned.</p>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
+            I am a senior Human Resources practitioner with extensive experience in UN system operations, humanitarian missions, and international development environments. My leadership is defined by a commitment to strategic workforce alignment and operational resilience.
+        </p>
 
-        <h2>Impact Snapshot</h2>
+        <!-- NEW VALUE PROPOSITION GRID -->
+        <div class="grid grid--auto-fit">
+            <!-- Pillar 1: Strategic Leadership -->
+            <div class="card">
+                <i class="fa-solid fa-chess-knight card__icon"></i>
+                <h3 class="card__title">Strategic HR Leadership</h3>
+                <p class="card__body">
+                    Driving organizational transformation through comprehensive policy development, change management, and the alignment of workforce strategy with mission-critical humanitarian objectives.
+                </p>
+            </div>
+
+            <!-- Pillar 2: Crisis & Resilience -->
+            <div class="card">
+                <i class="fa-solid fa-hands-holding-circle card__icon"></i>
+                <h3 class="card__title">Crisis & Workforce Resilience</h3>
+                <p class="card__body">
+                    Ensuring operational continuity in high-risk environments via emergency staffing protocols, evacuation coordination, and robust staff welfare systems during complex emergencies.
+                </p>
+            </div>
+
+            <!-- Pillar 3: Global Talent Operations -->
+            <div class="card">
+                <i class="fa-solid fa-globe card__icon"></i>
+                <h3 class="card__title">Global Talent Operations</h3>
+                <p class="card__body">
+                    Optimizing international recruitment pipelines and HR systems to secure top-tier talent and streamline cross-border workforce deployment for large-scale missions.
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p>Throughout my career, I have supported complex field operations, peacekeeping missions, and large-scale humanitarian responses, ensuring that workforce systems remain resilient, compliant, and strategically aligned.</p>
+        </div>
+
+        <h2 style="margin-top: 5rem;">Impact Snapshot</h2>
         
         <div class="metrics-grid">
             <div class="metric-card">
