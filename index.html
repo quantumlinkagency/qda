@@ -162,22 +162,22 @@ li {
 
 /* --- Skill List Styling --- */
 .skill-list {
-    list-style: none; /* Remove default bullets */
+    list-style: none;
     padding-left: 0;
 }
 
 .skill-list li {
     display: flex;
-    align-items: flex-start; /* Align icon to top if text wraps */
+    align-items: flex-start;
     margin-bottom: 12px;
 }
 
 .skill-list li i {
-    color: var(--accent); /* Gold accent */
-    width: 25px; /* Fixed width for alignment */
+    color: var(--accent);
+    width: 25px;
     margin-right: 12px;
-    margin-top: 5px; /* Slight adjustment for line-height visual */
-    font-size: 0.9rem; /* Subtle size */
+    margin-top: 5px;
+    font-size: 0.9rem;
     text-align: center;
 }
 
@@ -209,6 +209,73 @@ li {
 
 .entry-card ul {
     margin-bottom: 0;
+}
+
+/* =========================================
+   UPDATED CONTACT SECTION STYLES
+   ========================================= */
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-item i {
+    color: var(--accent);
+    width: 30px;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.contact-item a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.social-link i {
+    margin-right: 10px;
+    color: var(--accent);
+}
+
+.social-link:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
 }
 
 /* --- Footer --- */
@@ -352,16 +419,13 @@ li {
     }
 
     .nav-menu.active { left: 0; }
-
     .nav-item { margin: 0; width: 100%; }
-
     .nav-link {
         display: block;
         padding: 20px 0;
         font-size: 1.1rem;
         width: 100%;
     }
-
     .nav-link:hover { background-color: rgba(255,255,255,0.05); }
     .nav-link::after { display: none; }
 
@@ -370,8 +434,14 @@ li {
         min-height: calc(100vh - var(--nav-height)); 
     }
     
-    .entry-card {
-        padding: 20px;
+    .entry-card { padding: 20px; }
+    
+    .social-links {
+        flex-direction: column;
+    }
+    
+    .social-link {
+        justify-content: center;
     }
 }
 </style>
@@ -604,9 +674,40 @@ li {
     <div class="container">
         <h2>Contact</h2>
         <p>Please feel free to reach out for senior HR leadership opportunities or consulting engagements.</p>
-        <p><strong>Location:</strong> Khartoum, Sudan</p>
-        <p><strong>Email:</strong> <a href="mailto:munirmoh@gmail.com" style="color:var(--primary);">munirmoh@gmail.com</a></p>
-        <p><strong>Phone:</strong> +249 912 337</p>
+        
+        <div class="contact-details">
+            <!-- Location -->
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Khartoum, Sudan</span>
+            </div>
+            
+            <!-- Email -->
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:munirmoh@gmail.com">munirmoh@gmail.com</a>
+            </div>
+            
+            <!-- Phone -->
+            <!-- Note: Updated phone format. Please ensure number is correct. -->
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+2499123371234">+249 912 337 [1234]</a>
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <!-- Update href="#" with actual LinkedIn URL -->
+            <a href="#" class="social-link" target="_blank" aria-label="LinkedIn Profile">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+            </a>
+            
+            <!-- Optional: ResearchGate or similar professional profile -->
+            <a href="#" class="social-link" target="_blank" aria-label="ResearchGate Profile">
+                <i class="fa-brands fa-researchgate"></i> ResearchGate
+            </a>
+        </div>
     </div>
 </section>
 
