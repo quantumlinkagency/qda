@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Munir Zakaria | Senior Human Resources Leader</title>
+<!-- FontAwesome for Professional Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root {
@@ -12,7 +14,7 @@
     --light: #f5f7fa;
     --text: #333;
     --nav-height: 70px;
-    --bg-alt: #f8f9fb; /* The requested light gray */
+    --bg-alt: #f8f9fb;
 }
 
 * {
@@ -139,7 +141,7 @@ li {
 .hero p { animation-delay: 0.6s; opacity: 0; }
 
 /* =========================================
-   VISUAL SEPARATION & CARDS
+   ICONS & VISUAL SEPARATION
    ========================================= */
 
 /* Alternating Backgrounds */
@@ -154,12 +156,32 @@ li {
     border-bottom: none;
 }
 
-/* Apply light gray to even sections */
 .content-section:nth-of-type(even) {
     background-color: var(--bg-alt);
 }
 
-/* Card Style for Experience Entries */
+/* --- Skill List Styling --- */
+.skill-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.skill-list li {
+    display: flex;
+    align-items: flex-start; /* Align icon to top if text wraps */
+    margin-bottom: 12px;
+}
+
+.skill-list li i {
+    color: var(--accent); /* Gold accent */
+    width: 25px; /* Fixed width for alignment */
+    margin-right: 12px;
+    margin-top: 5px; /* Slight adjustment for line-height visual */
+    font-size: 0.9rem; /* Subtle size */
+    text-align: center;
+}
+
+/* Entry Cards for Experience */
 .entry-card {
     background-color: #fff;
     border: 1px solid #e0e0e0;
@@ -176,9 +198,8 @@ li {
     box-shadow: 0 6px 15px rgba(0,0,0,0.06);
 }
 
-/* Reset specific styles within cards for consistency */
 .entry-card h3 {
-    margin-top: 0; /* Override default h3 margin */
+    margin-top: 0;
     padding-left: 0;
     border-left: none;
     margin-bottom: 15px;
@@ -187,7 +208,7 @@ li {
 }
 
 .entry-card ul {
-    margin-bottom: 0; /* Remove bottom margin inside card */
+    margin-bottom: 0;
 }
 
 /* --- Footer --- */
@@ -230,7 +251,7 @@ li {
 
 .nav-logo {
     color: white;
-    font-size: 1.5rem; /* Desktop size */
+    font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
     letter-spacing: 1px;
@@ -344,13 +365,11 @@ li {
     .nav-link:hover { background-color: rgba(255,255,255,0.05); }
     .nav-link::after { display: none; }
 
-    /* Mobile Hero Adjustment */
     .hero {
         background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
         min-height: calc(100vh - var(--nav-height)); 
     }
     
-    /* Adjust Card Padding for Mobile */
     .entry-card {
         padding: 20px;
     }
@@ -421,44 +440,44 @@ li {
     </div>
 </section>
 
-<!-- Core Expertise Section (Background will be light gray due to nth-of-type(even)) -->
+<!-- Core Expertise Section -->
 <section id="skills" class="content-section">
     <div class="container">
         <h2>Core Expertise</h2>
 
         <h3>Strategic HR Leadership</h3>
-        <ul>
-            <li>HR Strategy Development & Implementation</li>
-            <li>Organizational Change Management</li>
-            <li>Policy Development & Regulatory Compliance</li>
-            <li>Budget Planning & Cost Optimization</li>
-            <li>Cross-Cultural Team Leadership</li>
+        <ul class="skill-list">
+            <li><i class="fa-solid fa-chess-board"></i> HR Strategy Development & Implementation</li>
+            <li><i class="fa-solid fa-people-arrows"></i> Organizational Change Management</li>
+            <li><i class="fa-solid fa-scale-balanced"></i> Policy Development & Regulatory Compliance</li>
+            <li><i class="fa-solid fa-file-invoice-dollar"></i> Budget Planning & Cost Optimization</li>
+            <li><i class="fa-solid fa-language"></i> Cross-Cultural Team Leadership</li>
         </ul>
 
         <h3>Humanitarian & Crisis HR Management</h3>
-        <ul>
-            <li>Emergency Response Staffing</li>
-            <li>Security Clearance & Evacuation Coordination</li>
-            <li>Staff Welfare & Crisis Management</li>
-            <li>Field Operations HR Advisory</li>
-            <li>Inter-Agency Coordination</li>
+        <ul class="skill-list">
+            <li><i class="fa-solid fa-bell"></i> Emergency Response Staffing</li>
+            <li><i class="fa-solid fa-shield-halved"></i> Security Clearance & Evacuation Coordination</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> Staff Welfare & Crisis Management</li>
+            <li><i class="fa-solid fa-earth-africa"></i> Field Operations HR Advisory</li>
+            <li><i class="fa-solid fa-users-viewfinder"></i> Inter-Agency Coordination</li>
         </ul>
 
         <h3>International Recruitment & Talent Management</h3>
-        <ul>
-            <li>Competency-Based Selection</li>
-            <li>Cross-Border Recruitment Operations</li>
-            <li>UN Recruitment Platforms (Inspira, MSRP)</li>
-            <li>Talent Pipeline Development</li>
-            <li>Performance Management Systems</li>
+        <ul class="skill-list">
+            <li><i class="fa-solid fa-user-check"></i> Competency-Based Selection</li>
+            <li><i class="fa-solid fa-plane-departure"></i> Cross-Border Recruitment Operations</li>
+            <li><i class="fa-solid fa-network-wired"></i> UN Recruitment Platforms (Inspira, MSRP)</li>
+            <li><i class="fa-solid fa-user-group"></i> Talent Pipeline Development</li>
+            <li><i class="fa-solid fa-chart-pie"></i> Performance Management Systems</li>
         </ul>
 
         <h3>HR Systems & Process Optimization</h3>
-        <ul>
-            <li>UMOJA & MSRP Implementation</li>
-            <li>HR Data Analytics & Reporting</li>
-            <li>Process Automation & Efficiency Improvement</li>
-            <li>HRMS Compliance Monitoring</li>
+        <ul class="skill-list">
+            <li><i class="fa-solid fa-laptop-file"></i> UMOJA & MSRP Implementation</li>
+            <li><i class="fa-solid fa-chart-simple"></i> HR Data Analytics & Reporting</li>
+            <li><i class="fa-solid fa-microchip"></i> Process Automation & Efficiency Improvement</li>
+            <li><i class="fa-solid fa-file-shield"></i> HRMS Compliance Monitoring</li>
         </ul>
 
         <h2>System & Technical Expertise</h2>
@@ -480,7 +499,6 @@ li {
     <div class="container">
         <h2>Professional Experience</h2>
 
-        <!-- Entry Card 1 -->
         <div class="entry-card">
             <h3>HR Associate | UNHCR | 2020 – Present</h3>
             <ul>
@@ -493,7 +511,6 @@ li {
             </ul>
         </div>
 
-        <!-- Entry Card 2 -->
         <div class="entry-card">
             <h3>Senior HR Assistant | UNHCR | 2015 – 2020</h3>
             <ul>
@@ -505,7 +522,6 @@ li {
             </ul>
         </div>
 
-        <!-- Entry Card 3 -->
         <div class="entry-card">
             <h3>Human Resources Associate | MINUSCA – UN Mission | 2014</h3>
             <ul>
@@ -516,7 +532,6 @@ li {
             </ul>
         </div>
 
-        <!-- Entry Card 4 -->
         <div class="entry-card">
             <h3>Human Resources Assistant | UNAMID – AU/UN Hybrid Mission | 2007 – 2015</h3>
             <ul>
@@ -527,7 +542,6 @@ li {
             </ul>
         </div>
 
-        <!-- Entry Card 5 -->
         <div class="entry-card">
             <h3>HR Officer | Relief International | 2006 – 2007</h3>
             <ul>
@@ -540,7 +554,7 @@ li {
     </div>
 </section>
 
-<!-- Education & Languages Section (Background will be light gray) -->
+<!-- Education & Languages Section -->
 <section id="education" class="content-section">
     <div class="container">
         <h2>Education & Professional Development</h2>
