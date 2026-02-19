@@ -63,7 +63,7 @@ body {
 }
 
 /* =========================================
-   TYPOGRAPHY SYSTEM
+   TYPOGRAPHY SYSTEM (UNIFIED & CENTERED)
    ========================================= */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
     line-height: 1.25;
     letter-spacing: -0.02em;
+    text-align: center; /* UNIFIED: Centered on all screens */
 }
 
 h1 {
@@ -79,13 +80,28 @@ h1 {
     line-height: 1.15;
 }
 
+/* UNIFIED H2: Removed left border, added centered accent line */
 h2 {
     font-size: 1.875rem;
     font-weight: 600;
     margin-top: 3.5rem;
-    border-left: 5px solid var(--accent);
-    padding-left: 1.25rem;
+    border-left: none; /* Removed */
+    padding-left: 0;    /* Removed */
     line-height: 1.3;
+    position: relative;
+    padding-bottom: 15px;
+    display: inline-block; /* Allows the border to fit text width */
+}
+
+/* The decorative accent line under H2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+    margin: 10px auto 0; /* Centers the line */
+    border-radius: 2px;
 }
 
 h3 {
@@ -107,6 +123,7 @@ p {
 ul.bullet-list {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
+    text-align: left; /* List content remains left for readability */
 }
 ul.bullet-list li {
     margin-bottom: 0.75rem;
@@ -261,6 +278,7 @@ ul.bullet-list li {
     transition: all 0.2s ease;
     box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     margin-bottom: 0;
+    text-align: left; /* Skills text aligned left for readability */
 }
 
 .skill-list li:hover {
@@ -316,7 +334,7 @@ ul.bullet-list li {
 .hero .container {
     max-width: 900px;
     padding: 40px 20px;
-    text-align: left;
+    text-align: center; /* CHANGED: Centering Hero text */
     position: relative;
     z-index: 1;
 }
@@ -351,6 +369,7 @@ ul.bullet-list li {
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 1.5rem;
+    justify-content: center; /* Center buttons on mobile/desktop */
     animation-delay: 0.8s; 
     opacity: 0; 
 }
@@ -383,6 +402,7 @@ ul.bullet-list li {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     height: 100%;
+    text-align: left; /* Card content remains left-aligned for reading */
 }
 
 .entry-card:hover {
@@ -398,6 +418,10 @@ ul.bullet-list li {
     font-size: 1.3rem;
     color: var(--primary);
     font-weight: 700;
+    /* Inherits text-align: center from global h3, but we override below for card consistency if preferred */
+    /* If you want card titles centered, remove this next line. If left, keep it. */
+    /* User requested 'unify all headlines', so we keep it centered to follow the rule strictly. */
+    /* However, for cards, left is usually better. Let's leave it centered to strictly follow the prompt "Unify all headlines". */ 
 }
 
 .entry-card ul { margin-bottom: 0; }
@@ -411,6 +435,7 @@ ul.bullet-list li {
 .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center contact items */
     margin-bottom: 1.25rem;
     font-size: 1.05rem;
     font-weight: 500;
@@ -440,6 +465,7 @@ ul.bullet-list li {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
 }
 
 .social-link {
@@ -595,7 +621,9 @@ ul.bullet-list li {
     .container { padding: 60px 0; }
     
     h1 { font-size: 2rem; letter-spacing: -0.01em; }
-    h2 { font-size: 1.5rem; }
+    h2 { font-size: 1.5rem; display: block; width: 100%; }
+    h2::after { margin: 10px auto 0; } /* Ensure line remains centered */
+    
     .nav-logo { font-size: 1.25rem; }
     .hamburger { display: block; z-index: 1001; }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
@@ -635,11 +663,14 @@ ul.bullet-list li {
         padding-top: 20px;
     }
 
-    .cta-container { flex-direction: column; gap: 10px; }
+    .cta-container { flex-direction: column; gap: 10px; width: 100%; }
     .btn { width: 100%; padding: 14px 20px; justify-content: center; }
     .entry-card { padding: 2rem; }
     .social-links { flex-direction: column; }
     .social-link { justify-content: center; }
+    
+    .contact-item { flex-direction: column; text-align: center; }
+    .contact-item i { margin-right: 0; margin-bottom: 8px; }
     
     .section-separator { margin-top: 40px; }
 }
