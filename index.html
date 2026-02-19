@@ -74,14 +74,42 @@ li {
     margin-bottom: 8px;
 }
 
-/* --- Hero Section --- */
+/* =========================================
+   UPDATED HERO SECTION STYLES
+   ========================================= */
 .hero {
-    background: white;
-    padding: 40px 0 80px 0; /* Adjusted top padding */
+    /* Vertical Centering & Layout */
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 40px 0;
+    
+    /* Abstract Background Pattern */
+    background-color: #ffffff;
+    background-image: 
+        radial-gradient(circle at 10% 90%, rgba(11, 31, 59, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(198, 161, 74, 0.06) 0%, transparent 35%),
+        linear-gradient(rgba(11, 31, 59, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 31, 59, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
+}
+
+.hero .container {
+    max-width: 800px; 
+    padding: 40px 20px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
     font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
 }
 
 .subtitle {
@@ -89,12 +117,33 @@ li {
     color: var(--accent);
     margin-bottom: 25px;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.hero h1 { animation-delay: 0.2s; opacity: 0; }
+.hero .subtitle { animation-delay: 0.4s; opacity: 0; }
+.hero p { animation-delay: 0.6s; opacity: 0; }
 
 /* --- Content Sections --- */
 .content-section {
     background: white;
-    padding: 40px 0; /* Reduced slightly for rhythm */
+    padding: 40px 0;
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
 }
@@ -143,7 +192,7 @@ li {
 
 .nav-logo {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Desktop size */
     font-weight: 700;
     text-decoration: none;
     letter-spacing: 1px;
@@ -177,7 +226,7 @@ li {
     color: var(--accent);
 }
 
-/* Underline animation for nav links */
+/* Underline animation */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -215,6 +264,12 @@ li {
     h2 { font-size: 1.5rem; }
     .container { padding: 30px 0; }
     
+    /* Updated Mobile Logo Styling */
+    .nav-logo {
+        font-size: 1.2rem;       /* Scaled down for mobile */
+        letter-spacing: 0;        /* Tightened spacing to save space */
+    }
+    
     /* Mobile Nav Styles */
     .hamburger {
         display: block;
@@ -241,7 +296,7 @@ li {
         flex-direction: column;
         background-color: var(--primary);
         width: 100%;
-        height: calc(100vh - var(--nav-height)); /* Full height minus nav bar */
+        height: calc(100vh - var(--nav-height)); 
         text-align: center;
         transition: 0.3s;
         overflow-y: auto;
@@ -269,7 +324,13 @@ li {
     }
     
     .nav-link::after {
-        display: none; /* Remove underline animation on mobile */
+        display: none;
+    }
+
+    /* Mobile Hero Adjustment */
+    .hero {
+        background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+        min-height: calc(100vh - var(--nav-height)); 
     }
 }
 </style>
@@ -300,13 +361,12 @@ li {
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="container">
-        <h1>MUNIR ZAKARIA, MBA | CIPD Assoc</h1>
-        <p class="subtitle">Senior Human Resources Leader in Humanitarian & UN Operations</p>
-        <p><strong>Strategic HR Leadership | Crisis Workforce Management | International Recruitment | Organizational Transformation</strong></p>
-        <br>
-        <p>Building Resilient Workforce Systems in Complex Humanitarian Environments</p>
-        <p>With over 20 years of progressive leadership across United Nations agencies and international humanitarian organizations, I specialize in aligning people strategy with operational realities in crisis-affected and high-risk environments.</p>
-        <p>I have led HR operations supporting 1000+ personnel across Sudan, Central African Republic, and regional missions — delivering workforce stability, operational efficiency, and organizational transformation under challenging conditions.</p>
+        <h1 class="animate-up">MUNIR ZAKARIA, MBA | CIPD Assoc</h1>
+        <p class="subtitle animate-up">Senior Human Resources Leader in Humanitarian & UN Operations</p>
+        <p class="animate-up"><strong>Strategic HR Leadership | Crisis Workforce Management | International Recruitment | Organizational Transformation</strong></p>
+        <p class="animate-up">Building Resilient Workforce Systems in Complex Humanitarian Environments</p>
+        <p class="animate-up">With over 20 years of progressive leadership across United Nations agencies and international humanitarian organizations, I specialize in aligning people strategy with operational realities in crisis-affected and high-risk environments.</p>
+        <p class="animate-up">I have led HR operations supporting 1000+ personnel across Sudan, Central African Republic, and regional missions — delivering workforce stability, operational efficiency, and organizational transformation under challenging conditions.</p>
     </div>
 </section>
 
