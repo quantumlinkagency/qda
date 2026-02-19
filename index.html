@@ -80,29 +80,31 @@ body {
 }
 
 /* =========================================
-   TYPOGRAPHY SYSTEM
+   TYPOGRAPHY SYSTEM (FIXED FOR GLOBAL CENTERING)
    ========================================= */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
     color: var(--primary);
-    margin-bottom: 1.5rem;
     line-height: 1.25;
     letter-spacing: -0.02em;
-    text-align: center; /* Unified Centering */
+    /* UNIFIED: Centering all headlines on all screens */
+    text-align: center; 
+    display: block;
 }
 
 h1 {
     font-size: 2.75rem;
     font-weight: 700;
     line-height: 1.15;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
     font-size: 1.875rem;
     font-weight: 600;
-    margin-top: 3.5rem;
+    /* Center the block itself on the page */
+    margin: 3.5rem auto 1.5rem;
     padding-bottom: 15px;
-    display: inline-block;
     position: relative;
 }
 
@@ -112,7 +114,7 @@ h2::after {
     width: 60px;
     height: 3px;
     background-color: var(--accent);
-    margin: 10px auto 0;
+    margin: 10px auto 0; /* Centers the line under the centered text */
     border-radius: 2px;
 }
 
@@ -130,12 +132,13 @@ p {
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
     color: #475569;
+    text-align: left; /* Paragraphs remain left for readability by default */
 }
 
 ul.bullet-list {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
-    text-align: left;
+    text-align: left; /* List content remains left for readability */
 }
 ul.bullet-list li {
     margin-bottom: 0.75rem;
@@ -162,14 +165,13 @@ ul.bullet-list li {
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align for executive impact */
+    align-items: center; /* Center align card contents */
     text-align: center;
     height: 100%;
     position: relative;
     overflow: hidden;
 }
 
-/* Decorative top accent for card */
 .card::before {
     content: '';
     position: absolute;
@@ -211,6 +213,7 @@ ul.bullet-list li {
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
     line-height: 1.3;
+    text-align: center; /* Explicitly center */
 }
 
 .card__body {
@@ -218,6 +221,7 @@ ul.bullet-list li {
     line-height: 1.6;
     color: var(--color-text-muted);
     margin-bottom: 0;
+    text-align: center; /* Explicitly center */
 }
 
 /* =========================================
@@ -418,6 +422,11 @@ ul.bullet-list li {
     z-index: 1;
 }
 
+/* FIX: Override global left-align for paragraphs specifically in the Hero */
+.hero p {
+    text-align: center; 
+}
+
 .hero h1 { animation-delay: 0.2s; opacity: 0; }
 
 .hero .subtitle { 
@@ -497,7 +506,6 @@ ul.bullet-list li {
     font-size: 1.3rem;
     color: var(--primary);
     font-weight: 700;
-    text-align: left; /* Overriding global center for readability in cards */
 }
 
 .entry-card ul { margin-bottom: 0; }
@@ -783,7 +791,7 @@ ul.bullet-list li {
 <section id="home" class="hero">
     <div class="container">
         <h1 class="animate-up">Munir Zakaria, MBA | CIPD Assoc</h1>
-        <p class="subtitle animate-up">Senior Human Resources Leader in Humanitarian & UN Operations</p>
+        <p class="subtitle animate-up">HR Professional</p>
         <p class="subheadline animate-up">Strategic HR Leadership | Crisis Workforce Management | International Recruitment | Organizational Transformation</p>
         <div class="cta-container animate-up">
             <a href="#cv" class="btn btn-primary">
