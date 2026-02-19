@@ -212,7 +212,7 @@ li {
 }
 
 /* =========================================
-   UPDATED CONTACT SECTION STYLES
+   CONTACT SECTION STYLES
    ========================================= */
 .contact-details {
     margin-top: 30px;
@@ -278,16 +278,41 @@ li {
     transform: translateY(-2px);
 }
 
-/* --- Footer --- */
+/* =========================================
+   ENHANCED FOOTER STYLES
+   ========================================= */
 .footer {
     background: var(--primary);
     color: white;
-    padding: 40px 0;
+    /* Increased padding from 40px to 70px for more height */
+    padding: 70px 0; 
     text-align: center;
 }
 
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px; /* Space between icons and copyright */
+}
+
+.footer-social-link {
+    color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.footer-social-link:hover {
+    color: var(--accent); /* Gold on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
 .footer p {
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0;
 }
 
 /* =========================================
@@ -436,13 +461,8 @@ li {
     
     .entry-card { padding: 20px; }
     
-    .social-links {
-        flex-direction: column;
-    }
-    
-    .social-link {
-        justify-content: center;
-    }
+    .social-links { flex-direction: column; }
+    .social-link { justify-content: center; }
 }
 </style>
 </head>
@@ -711,8 +731,28 @@ li {
     </div>
 </section>
 
+<!-- Enhanced Footer Section -->
 <section class="footer">
     <div class="container">
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+            <!-- Update href with actual LinkedIn URL -->
+            <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            
+            <!-- Email Link -->
+            <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            
+            <!-- Optional: ResearchGate or others -->
+            <a href="#" class="footer-social-link" target="_blank" aria-label="ResearchGate">
+                <i class="fa-brands fa-researchgate"></i>
+            </a>
+        </div>
+
+        <!-- Copyright Text -->
         <p>© 2026 Munir Zakaria. All Rights Reserved.</p>
     </div>
 </section>
