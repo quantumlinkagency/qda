@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Munir Zakaria | Senior Human Resources Leader</title>
+<!-- Google Fonts: Inter for Modern Executive Style -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- FontAwesome for Professional Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -12,9 +16,10 @@
     --primary: #0B1F3B;
     --accent: #C6A14A;
     --light: #f5f7fa;
-    --text: #333;
+    --text: #1e293b;
     --nav-height: 70px;
     --bg-alt: #f8f9fb;
+    --font-main: 'Inter', sans-serif;
 }
 
 * {
@@ -28,11 +33,14 @@ html {
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: var(--font-main);
+    font-weight: 400;
     line-height: 1.7;
     background-color: var(--light);
     color: var(--text);
     padding-top: var(--nav-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -42,39 +50,164 @@ body {
     padding: 60px 0;
 }
 
-h1, h2, h3 {
+/* =========================================
+   TYPOGRAPHY SYSTEM
+   ========================================= */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
     color: var(--primary);
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
 }
 
 h2 {
-    font-size: 1.8rem;
-    margin-top: 40px;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-top: 3.5rem;
     border-left: 5px solid var(--accent);
-    padding-left: 15px;
+    padding-left: 1.25rem;
+    line-height: 1.3;
 }
 
 h3 {
-    font-size: 1.3rem;
-    margin-top: 30px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
     color: var(--primary);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
 }
 
 p {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    color: #475569;
 }
 
-ul {
-    margin-bottom: 20px;
-    padding-left: 20px;
+ul.bullet-list {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+ul.bullet-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    color: #334155;
 }
 
-li {
-    margin-bottom: 8px;
+/* =========================================
+   METRIC CARDS
+   ========================================= */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.metric-card {
+    background-color: #fff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(198, 161, 74, 0.2);
+}
+
+.metric-value {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.metric-card.text-heavy .metric-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.metric-desc {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #475569;
+    line-height: 1.5;
+    max-width: 90%;
+}
+
+/* =========================================
+   MODERN SKILL GRID
+   ========================================= */
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+.skill-list li {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    margin-bottom: 0;
+}
+
+.skill-list li:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+    background-color: #fff;
+}
+
+.skill-list li i {
+    color: var(--accent);
+    width: 24px;
+    margin-right: 14px;
+    font-size: 0.95rem;
+    opacity: 0.6;
+    text-align: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.skill-list li:hover i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.skill-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #334155;
+    line-height: 1.4;
 }
 
 /* =========================================
@@ -99,203 +232,142 @@ li {
 }
 
 .hero .container {
-    max-width: 900px; /* Slightly wider for buttons */
+    max-width: 900px;
     padding: 40px 20px;
     text-align: left;
     position: relative;
     z-index: 1;
 }
 
-/* New Hero Styling */
-.hero h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 10px;
-    font-weight: 800;
-}
+.hero h1 { animation-delay: 0.2s; opacity: 0; }
 
-.hero .subtitle {
-    font-size: 1.4rem;
+.hero .subtitle { 
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--primary);
-    margin-bottom: 25px;
-    font-weight: 600;
-    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    animation-delay: 0.4s; 
+    opacity: 0; 
 }
 
-.hero .subheadline {
-    font-size: 1rem;
+.hero .subheadline { 
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
     color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 35px;
-    letter-spacing: 0.5px;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    animation-delay: 0.6s; 
+    opacity: 0; 
 }
 
-/* CTA Button Styles */
 .cta-container {
     display: flex;
-    gap: 15px;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 1.5rem;
+    animation-delay: 0.8s; 
+    opacity: 0; 
 }
 
 .btn {
+    font-family: var(--font-main);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 28px;
-    font-size: 1rem;
+    padding: 14px 28px;
+    font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: all 0.3s ease;
     cursor: pointer;
+    letter-spacing: -0.01em;
 }
 
-.btn i {
-    margin-right: 8px;
-}
+.btn i { margin-right: 10px; }
 
-/* Primary: Download CV */
-.btn-primary {
-    background-color: var(--primary);
-    color: white;
-    border: 2px solid var(--primary);
-}
+.btn-primary { background-color: var(--primary); color: white; border: 2px solid var(--primary); }
+.btn-primary:hover { background-color: transparent; color: var(--primary); }
 
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--primary);
-}
+.btn-secondary { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); }
+.btn-secondary:hover { background-color: var(--primary); color: white; }
 
-/* Secondary: Schedule */
-.btn-secondary {
-    background-color: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-}
+.btn-accent { background-color: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-accent:hover { background-color: var(--accent); color: white; }
 
-.btn-secondary:hover {
-    background-color: var(--primary);
-    color: white;
-}
-
-/* Tertiary: LinkedIn (Accent) */
-.btn-accent {
-    background-color: transparent;
-    color: var(--accent);
-    border: 2px solid var(--accent);
-}
-
-.btn-accent:hover {
-    background-color: var(--accent);
-    color: white;
-}
-
-/* Fade Up Animation */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-up {
-    animation: fadeUp 1s ease-out forwards;
-}
-
-.hero h1 { animation-delay: 0.2s; opacity: 0; }
-.hero .subtitle { animation-delay: 0.4s; opacity: 0; }
-.hero .subheadline { animation-delay: 0.6s; opacity: 0; }
-.hero .cta-container { animation-delay: 0.8s; opacity: 0; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.animate-up { animation: fadeUp 1s ease-out forwards; }
 
 /* =========================================
-   ICONS & VISUAL SEPARATION
+   CONTENT SECTIONS
    ========================================= */
 
-/* Alternating Backgrounds */
 .content-section {
     background: white;
     padding: 40px 0;
     margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-.content-section:last-of-type {
-    border-bottom: none;
-}
+.content-section:last-of-type { border-bottom: none; }
+.content-section:nth-of-type(even) { background-color: var(--bg-alt); }
 
-.content-section:nth-of-type(even) {
-    background-color: var(--bg-alt);
-}
-
-/* --- Skill List Styling --- */
-.skill-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.skill-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 12px;
-}
-
-.skill-list li i {
-    color: var(--accent);
-    width: 25px;
-    margin-right: 12px;
-    margin-top: 5px;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* Entry Cards for Experience */
+/* =========================================
+   MODERN EXECUTIVE ENTRY CARDS
+   ========================================= */
 .entry-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    border-left: 4px solid var(--accent);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #ffffff;
+    /* Removed heavy borders and accent bar */
+    border: none;
+    border-left: none; 
+    border-radius: 16px; /* Increased radius for modern look */
+    padding: 2.5rem; /* Increased padding for breathing room */
+    margin-bottom: 2.5rem;
+    
+    /* Soft, deep shadow for executive elevation */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    
+    /* Smooth cubic-bezier for premium feel on hover */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    height: 100%; /* Ensure full height in grid if used */
 }
 
 .entry-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    /* Higher elevation on hover */
+    transform: translateY(-6px);
+    /* Deeper shadow on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
 .entry-card h3 {
     margin-top: 0;
+    margin-bottom: 1rem;
     padding-left: 0;
-    border-left: none;
-    margin-bottom: 15px;
-    font-size: 1.25rem;
+    border-left: none; /* Removed border from heading too */
+    font-size: 1.3rem; /* Slightly larger for hierarchy */
     color: var(--primary);
+    font-weight: 700;
 }
 
-.entry-card ul {
-    margin-bottom: 0;
-}
+.entry-card ul { margin-bottom: 0; }
+
 
 /* =========================================
    CONTACT SECTION STYLES
    ========================================= */
-.contact-details {
-    margin-top: 30px;
-}
+.contact-details { margin-top: 2rem; }
 
 .contact-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 500;
 }
 
 .contact-item i {
@@ -309,40 +381,36 @@ li {
 .contact-item a {
     color: var(--primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.contact-item a:hover {
-    color: var(--accent);
-    text-decoration: underline;
-}
+.contact-item a:hover { color: var(--accent); text-decoration: underline; }
 
 .social-links {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1rem;
 }
 
 .social-link {
+    font-family: var(--font-main);
     display: inline-flex;
     align-items: center;
     color: var(--primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     padding: 10px 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
     transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
-.social-link i {
-    margin-right: 10px;
-    color: var(--accent);
-}
+.social-link i { margin-right: 10px; color: var(--accent); }
 
 .social-link:hover {
     background-color: var(--primary);
@@ -357,15 +425,15 @@ li {
 .footer {
     background: var(--primary);
     color: white;
-    padding: 70px 0; 
+    padding: 4rem 0; 
     text-align: center;
 }
 
 .footer-socials {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin-bottom: 25px;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .footer-social-link {
@@ -383,7 +451,8 @@ li {
 
 .footer p {
     font-size: 0.9rem;
-    opacity: 0.8;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 0;
 }
 
@@ -397,7 +466,7 @@ li {
     width: 100%;
     height: var(--nav-height);
     background-color: var(--primary);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -414,60 +483,47 @@ li {
 }
 
 .nav-logo {
+    font-family: var(--font-main);
     color: white;
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
 }
 
-.nav-logo span {
-    color: var(--accent);
-}
+.nav-logo span { color: var(--accent); }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-}
+.nav-menu { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; }
 
 .nav-link {
+    font-family: var(--font-main);
     text-decoration: none;
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    letter-spacing: -0.01em;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    color: var(--accent);
-}
+.nav-link:hover, .nav-link.active { color: var(--accent); }
 
 .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -5px;
+    bottom: -4px;
     left: 0;
     background-color: var(--accent);
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+.nav-link:hover::after { width: 100%; }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
+.hamburger { display: none; cursor: pointer; }
 
 .bar {
     display: block;
@@ -482,24 +538,15 @@ li {
    RESPONSIVE DESIGN
    ========================================= */
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
+    h1 { font-size: 2rem; letter-spacing: -0.01em; }
     h2 { font-size: 1.5rem; }
-    .container { padding: 30px 0; }
-    
-    .nav-logo {
-        font-size: 1.2rem;
-        letter-spacing: 0;
-    }
-    
-    .hamburger {
-        display: block;
-        z-index: 1001;
-    }
-
+    .container { padding: 40px 0; }
+    .nav-logo { font-size: 1.25rem; }
+    .hamburger { display: block; z-index: 1001; }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
+    
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -514,7 +561,7 @@ li {
         overflow-y: auto;
         border-top: 1px solid rgba(255,255,255,0.1);
     }
-
+    
     .nav-menu.active { left: 0; }
     .nav-item { margin: 0; width: 100%; }
     .nav-link {
@@ -522,6 +569,7 @@ li {
         padding: 20px 0;
         font-size: 1.1rem;
         width: 100%;
+        font-weight: 600;
     }
     .nav-link:hover { background-color: rgba(255,255,255,0.05); }
     .nav-link::after { display: none; }
@@ -529,21 +577,12 @@ li {
     .hero {
         background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
         min-height: calc(100vh - var(--nav-height)); 
+        padding-top: 20px;
     }
 
-    /* Mobile Button Stack */
-    .cta-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .btn {
-        width: 100%; /* Full width buttons on mobile */
-        padding: 14px 20px;
-    }
-    
-    .entry-card { padding: 20px; }
-    
+    .cta-container { flex-direction: column; gap: 10px; }
+    .btn { width: 100%; padding: 14px 20px; justify-content: center; }
+    .entry-card { padding: 2rem; } /* Slightly reduced padding on mobile */
     .social-links { flex-direction: column; }
     .social-link { justify-content: center; }
 }
@@ -575,28 +614,16 @@ li {
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="container">
-        <!-- Headline -->
         <h1 class="animate-up">Munir Zakaria, MBA | CIPD Assoc</h1>
-        
-        <!-- Subheadline (Title) -->
         <p class="subtitle animate-up">Senior Human Resources Leader in Humanitarian & UN Operations</p>
-        
-        <!-- Subheadline (Skills) -->
         <p class="subheadline animate-up">Strategic HR Leadership | Crisis Workforce Management | International Recruitment | Organizational Transformation</p>
-
-        <!-- CTA Buttons -->
         <div class="cta-container animate-up">
-            <!-- Download CV -->
             <a href="#cv" class="btn btn-primary">
                 <i class="fa-solid fa-download"></i> Download CV
             </a>
-            
-            <!-- Schedule a Consultation -->
             <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Inquiry" class="btn btn-secondary">
                 <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
             </a>
-            
-            <!-- Connect on LinkedIn -->
             <a href="#" target="_blank" class="btn btn-accent">
                 <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
             </a>
@@ -610,7 +637,7 @@ li {
         <h2>Professional Profile</h2>
         <p>I am a senior Human Resources practitioner with extensive experience in UN system operations, humanitarian missions, and international development environments.</p>
         <p>My expertise spans:</p>
-        <ul>
+        <ul class="bullet-list">
             <li>Strategic HR leadership</li>
             <li>International recruitment & talent acquisition</li>
             <li>Organizational change management</li>
@@ -622,14 +649,34 @@ li {
         <p>Throughout my career, I have supported complex field operations, peacekeeping missions, and large-scale humanitarian responses, ensuring that workforce systems remain resilient, compliant, and strategically aligned.</p>
 
         <h2>Impact Snapshot</h2>
-        <ul>
-            <li>20+ Years in International HR Leadership</li>
-            <li>1000+ Staff supported across multi-country operations</li>
-            <li>£5M+ Budget Oversight with cost control success</li>
-            <li>40% Recruitment Efficiency Improvement through system optimization</li>
-            <li>Crisis HR Leadership during COVID-19 and high-risk field operations</li>
-            <li>Multi-Country Experience: Sudan, Central African Republic, Regional Missions</li>
-        </ul>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">20+</div>
+                <div class="metric-desc">Years in International HR Leadership</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">1000+</div>
+                <div class="metric-desc">Staff supported across multi-country operations</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">£5M+</div>
+                <div class="metric-desc">Budget Oversight with cost control success</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">40%</div>
+                <div class="metric-desc">Recruitment Efficiency Improvement through system optimization</div>
+            </div>
+            <div class="metric-card text-heavy">
+                <div class="metric-value">Crisis HR Leadership</div>
+                <div class="metric-desc">during COVID-19 and high-risk field operations</div>
+            </div>
+            <div class="metric-card text-heavy">
+                <div class="metric-value">Multi-Country</div>
+                <div class="metric-desc">Experience: Sudan, Central African Republic, Regional Missions</div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -640,49 +687,49 @@ li {
 
         <h3>Strategic HR Leadership</h3>
         <ul class="skill-list">
-            <li><i class="fa-solid fa-chess-board"></i> HR Strategy Development & Implementation</li>
-            <li><i class="fa-solid fa-people-arrows"></i> Organizational Change Management</li>
-            <li><i class="fa-solid fa-scale-balanced"></i> Policy Development & Regulatory Compliance</li>
-            <li><i class="fa-solid fa-file-invoice-dollar"></i> Budget Planning & Cost Optimization</li>
-            <li><i class="fa-solid fa-language"></i> Cross-Cultural Team Leadership</li>
+            <li><i class="fa-solid fa-chess-board"></i> <span class="skill-text">HR Strategy Development & Implementation</span></li>
+            <li><i class="fa-solid fa-people-arrows"></i> <span class="skill-text">Organizational Change Management</span></li>
+            <li><i class="fa-solid fa-scale-balanced"></i> <span class="skill-text">Policy Development & Regulatory Compliance</span></li>
+            <li><i class="fa-solid fa-file-invoice-dollar"></i> <span class="skill-text">Budget Planning & Cost Optimization</span></li>
+            <li><i class="fa-solid fa-language"></i> <span class="skill-text">Cross-Cultural Team Leadership</span></li>
         </ul>
 
         <h3>Humanitarian & Crisis HR Management</h3>
         <ul class="skill-list">
-            <li><i class="fa-solid fa-bell"></i> Emergency Response Staffing</li>
-            <li><i class="fa-solid fa-shield-halved"></i> Security Clearance & Evacuation Coordination</li>
-            <li><i class="fa-solid fa-hand-holding-heart"></i> Staff Welfare & Crisis Management</li>
-            <li><i class="fa-solid fa-earth-africa"></i> Field Operations HR Advisory</li>
-            <li><i class="fa-solid fa-users-viewfinder"></i> Inter-Agency Coordination</li>
+            <li><i class="fa-solid fa-bell"></i> <span class="skill-text">Emergency Response Staffing</span></li>
+            <li><i class="fa-solid fa-shield-halved"></i> <span class="skill-text">Security Clearance & Evacuation Coordination</span></li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> <span class="skill-text">Staff Welfare & Crisis Management</span></li>
+            <li><i class="fa-solid fa-earth-africa"></i> <span class="skill-text">Field Operations HR Advisory</span></li>
+            <li><i class="fa-solid fa-users-viewfinder"></i> <span class="skill-text">Inter-Agency Coordination</span></li>
         </ul>
 
         <h3>International Recruitment & Talent Management</h3>
         <ul class="skill-list">
-            <li><i class="fa-solid fa-user-check"></i> Competency-Based Selection</li>
-            <li><i class="fa-solid fa-plane-departure"></i> Cross-Border Recruitment Operations</li>
-            <li><i class="fa-solid fa-network-wired"></i> UN Recruitment Platforms (Inspira, MSRP)</li>
-            <li><i class="fa-solid fa-user-group"></i> Talent Pipeline Development</li>
-            <li><i class="fa-solid fa-chart-pie"></i> Performance Management Systems</li>
+            <li><i class="fa-solid fa-user-check"></i> <span class="skill-text">Competency-Based Selection</span></li>
+            <li><i class="fa-solid fa-plane-departure"></i> <span class="skill-text">Cross-Border Recruitment Operations</span></li>
+            <li><i class="fa-solid fa-network-wired"></i> <span class="skill-text">UN Recruitment Platforms (Inspira, MSRP)</span></li>
+            <li><i class="fa-solid fa-user-group"></i> <span class="skill-text">Talent Pipeline Development</span></li>
+            <li><i class="fa-solid fa-chart-pie"></i> <span class="skill-text">Performance Management Systems</span></li>
         </ul>
 
         <h3>HR Systems & Process Optimization</h3>
         <ul class="skill-list">
-            <li><i class="fa-solid fa-laptop-file"></i> UMOJA & MSRP Implementation</li>
-            <li><i class="fa-solid fa-chart-simple"></i> HR Data Analytics & Reporting</li>
-            <li><i class="fa-solid fa-microchip"></i> Process Automation & Efficiency Improvement</li>
-            <li><i class="fa-solid fa-file-shield"></i> HRMS Compliance Monitoring</li>
+            <li><i class="fa-solid fa-laptop-file"></i> <span class="skill-text">UMOJA & MSRP Implementation</span></li>
+            <li><i class="fa-solid fa-chart-simple"></i> <span class="skill-text">HR Data Analytics & Reporting</span></li>
+            <li><i class="fa-solid fa-microchip"></i> <span class="skill-text">Process Automation & Efficiency Improvement</span></li>
+            <li><i class="fa-solid fa-file-shield"></i> <span class="skill-text">HRMS Compliance Monitoring</span></li>
         </ul>
 
         <h2>System & Technical Expertise</h2>
-        <ul>
-            <li>UMOJA</li>
-            <li>MSRP</li>
-            <li>Inspira</li>
-            <li>IMIS</li>
-            <li>Advanced Microsoft Excel</li>
-            <li>Financial Management Systems</li>
-            <li>HR Data Reporting & Analytics</li>
-            <li>Recruitment Tracking Platforms</li>
+        <ul class="skill-list" style="justify-content: center;">
+            <li><span class="skill-text">UMOJA</span></li>
+            <li><span class="skill-text">MSRP</span></li>
+            <li><span class="skill-text">Inspira</span></li>
+            <li><span class="skill-text">IMIS</span></li>
+            <li><span class="skill-text">Advanced Microsoft Excel</span></li>
+            <li><span class="skill-text">Financial Management Systems</span></li>
+            <li><span class="skill-text">HR Data Reporting & Analytics</span></li>
+            <li><span class="skill-text">Recruitment Tracking Platforms</span></li>
         </ul>
     </div>
 </section>
@@ -694,7 +741,7 @@ li {
 
         <div class="entry-card">
             <h3>HR Associate | UNHCR | 2020 – Present</h3>
-            <ul>
+            <ul class="bullet-list">
                 <li>National Recruitment Focal Point for Sudan Operations</li>
                 <li>Alternative Assignment Committee Member (Strategic Decision-Making Role)</li>
                 <li>Medical Evacuation Co-Coordinator</li>
@@ -706,7 +753,7 @@ li {
 
         <div class="entry-card">
             <h3>Senior HR Assistant | UNHCR | 2015 – 2020</h3>
-            <ul>
+            <ul class="bullet-list">
                 <li>Managed full recruitment lifecycle for multiple staff categories</li>
                 <li>Coordinated international staff onboarding & accreditation</li>
                 <li>Administered medical insurance systems for local personnel</li>
@@ -717,7 +764,7 @@ li {
 
         <div class="entry-card">
             <h3>Human Resources Associate | MINUSCA – UN Mission | 2014</h3>
-            <ul>
+            <ul class="bullet-list">
                 <li>Processed high-volume recruitment for mission-critical roles</li>
                 <li>Coordinated complex visa & international travel arrangements</li>
                 <li>Managed candidate evaluation & roster systems</li>
@@ -727,7 +774,7 @@ li {
 
         <div class="entry-card">
             <h3>Human Resources Assistant | UNAMID – AU/UN Hybrid Mission | 2007 – 2015</h3>
-            <ul>
+            <ul class="bullet-list">
                 <li>Performance management & staff development coordination</li>
                 <li>Training program design & delivery</li>
                 <li>Financial monitoring & HR cost control</li>
@@ -737,7 +784,7 @@ li {
 
         <div class="entry-card">
             <h3>HR Officer | Relief International | 2006 – 2007</h3>
-            <ul>
+            <ul class="bullet-list">
                 <li>Developed comprehensive HR strategy aligned with global objectives</li>
                 <li>Implemented performance management systems</li>
                 <li>Led change management initiatives</li>
@@ -751,7 +798,7 @@ li {
 <section id="education" class="content-section">
     <div class="container">
         <h2>Education & Professional Development</h2>
-        <ul>
+        <ul class="bullet-list">
             <li>MBA – Business Management</li>
             <li>Postgraduate – Human Resources Management & Development</li>
             <li>Diploma – Human Resources Management</li>
@@ -760,14 +807,14 @@ li {
         </ul>
 
         <h2>Multilingual Advantage</h2>
-        <ul>
+        <ul class="bullet-list">
             <li>English – Fluent</li>
             <li>Arabic – Fluent</li>
             <li>French – Intermediate</li>
         </ul>
 
         <h2>Areas of Specialization</h2>
-        <ul>
+        <ul class="bullet-list">
             <li>Humanitarian HR Management</li>
             <li>Emergency Staffing & Rapid Deployment</li>
             <li>Organizational Transformation</li>
@@ -782,7 +829,7 @@ li {
         <p>I believe that effective humanitarian operations depend on resilient, well-structured workforce systems. Strategic HR leadership is not administrative — it is mission-critical infrastructure that enables organizations to deliver impact in the most challenging environments.</p>
 
         <h2>Availability</h2>
-        <ul>
+        <ul class="bullet-list">
             <li>Senior HR Leadership Roles</li>
             <li>Organizational Transformation Initiatives</li>
             <li>Crisis Response Assignments</li>
@@ -803,12 +850,10 @@ li {
                 <i class="fa-solid fa-location-dot"></i>
                 <span>Khartoum, Sudan</span>
             </div>
-            
             <div class="contact-item">
                 <i class="fa-solid fa-envelope"></i>
                 <a href="mailto:munirmoh@gmail.com">munirmoh@gmail.com</a>
             </div>
-            
             <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
                 <a href="tel:+2499123371234">+249 912 337 [1234]</a>
@@ -819,7 +864,6 @@ li {
             <a href="#" class="social-link" target="_blank" aria-label="LinkedIn Profile">
                 <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
             </a>
-            
             <a href="#" class="social-link" target="_blank" aria-label="ResearchGate Profile">
                 <i class="fa-brands fa-researchgate"></i> ResearchGate
             </a>
@@ -834,16 +878,13 @@ li {
             <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
-            
             <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email">
                 <i class="fa-solid fa-envelope"></i>
             </a>
-            
             <a href="#" class="footer-social-link" target="_blank" aria-label="ResearchGate">
                 <i class="fa-brands fa-researchgate"></i>
             </a>
         </div>
-
         <p>© 2026 Munir Zakaria. All Rights Reserved.</p>
     </div>
 </section>
