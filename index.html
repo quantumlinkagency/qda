@@ -12,6 +12,7 @@
     --light: #f5f7fa;
     --text: #333;
     --nav-height: 70px;
+    --bg-alt: #f8f9fb; /* The requested light gray */
 }
 
 * {
@@ -29,7 +30,7 @@ body {
     line-height: 1.7;
     background-color: var(--light);
     color: var(--text);
-    padding-top: var(--nav-height); /* Prevents content from hiding behind fixed nav */
+    padding-top: var(--nav-height);
 }
 
 .container {
@@ -75,10 +76,9 @@ li {
 }
 
 /* =========================================
-   UPDATED HERO SECTION STYLES
+   HERO SECTION STYLES
    ========================================= */
 .hero {
-    /* Vertical Centering & Layout */
     min-height: calc(100vh - var(--nav-height));
     display: flex;
     flex-direction: column;
@@ -86,8 +86,6 @@ li {
     align-items: center;
     position: relative;
     padding: 40px 0;
-    
-    /* Abstract Background Pattern */
     background-color: #ffffff;
     background-image: 
         radial-gradient(circle at 10% 90%, rgba(11, 31, 59, 0.03) 0%, transparent 40%),
@@ -140,7 +138,11 @@ li {
 .hero .subtitle { animation-delay: 0.4s; opacity: 0; }
 .hero p { animation-delay: 0.6s; opacity: 0; }
 
-/* --- Content Sections --- */
+/* =========================================
+   VISUAL SEPARATION & CARDS
+   ========================================= */
+
+/* Alternating Backgrounds */
 .content-section {
     background: white;
     padding: 40px 0;
@@ -150,6 +152,42 @@ li {
 
 .content-section:last-of-type {
     border-bottom: none;
+}
+
+/* Apply light gray to even sections */
+.content-section:nth-of-type(even) {
+    background-color: var(--bg-alt);
+}
+
+/* Card Style for Experience Entries */
+.entry-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border-left: 4px solid var(--accent);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entry-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+/* Reset specific styles within cards for consistency */
+.entry-card h3 {
+    margin-top: 0; /* Override default h3 margin */
+    padding-left: 0;
+    border-left: none;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.entry-card ul {
+    margin-bottom: 0; /* Remove bottom margin inside card */
 }
 
 /* --- Footer --- */
@@ -226,7 +264,6 @@ li {
     color: var(--accent);
 }
 
-/* Underline animation */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -264,29 +301,19 @@ li {
     h2 { font-size: 1.5rem; }
     .container { padding: 30px 0; }
     
-    /* Updated Mobile Logo Styling */
     .nav-logo {
-        font-size: 1.2rem;       /* Scaled down for mobile */
-        letter-spacing: 0;        /* Tightened spacing to save space */
+        font-size: 1.2rem;
+        letter-spacing: 0;
     }
     
-    /* Mobile Nav Styles */
     .hamburger {
         display: block;
         z-index: 1001;
     }
 
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     .nav-menu {
         position: fixed;
@@ -303,14 +330,9 @@ li {
         border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .nav-menu.active {
-        left: 0;
-    }
+    .nav-menu.active { left: 0; }
 
-    .nav-item {
-        margin: 0;
-        width: 100%;
-    }
+    .nav-item { margin: 0; width: 100%; }
 
     .nav-link {
         display: block;
@@ -319,18 +341,18 @@ li {
         width: 100%;
     }
 
-    .nav-link:hover {
-        background-color: rgba(255,255,255,0.05);
-    }
-    
-    .nav-link::after {
-        display: none;
-    }
+    .nav-link:hover { background-color: rgba(255,255,255,0.05); }
+    .nav-link::after { display: none; }
 
     /* Mobile Hero Adjustment */
     .hero {
         background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
         min-height: calc(100vh - var(--nav-height)); 
+    }
+    
+    /* Adjust Card Padding for Mobile */
+    .entry-card {
+        padding: 20px;
     }
 }
 </style>
@@ -399,7 +421,7 @@ li {
     </div>
 </section>
 
-<!-- Core Expertise Section -->
+<!-- Core Expertise Section (Background will be light gray due to nth-of-type(even)) -->
 <section id="skills" class="content-section">
     <div class="container">
         <h2>Core Expertise</h2>
@@ -458,52 +480,67 @@ li {
     <div class="container">
         <h2>Professional Experience</h2>
 
-        <h3>HR Associate | UNHCR | 2020 – Present</h3>
-        <ul>
-            <li>National Recruitment Focal Point for Sudan Operations</li>
-            <li>Alternative Assignment Committee Member (Strategic Decision-Making Role)</li>
-            <li>Medical Evacuation Co-Coordinator</li>
-            <li>Streamlined recruitment tracking systems across multiple field offices</li>
-            <li>Ensured MSRP system compliance and reporting accuracy</li>
-            <li>Provided HR leadership under challenging security conditions in Darfur</li>
-        </ul>
+        <!-- Entry Card 1 -->
+        <div class="entry-card">
+            <h3>HR Associate | UNHCR | 2020 – Present</h3>
+            <ul>
+                <li>National Recruitment Focal Point for Sudan Operations</li>
+                <li>Alternative Assignment Committee Member (Strategic Decision-Making Role)</li>
+                <li>Medical Evacuation Co-Coordinator</li>
+                <li>Streamlined recruitment tracking systems across multiple field offices</li>
+                <li>Ensured MSRP system compliance and reporting accuracy</li>
+                <li>Provided HR leadership under challenging security conditions in Darfur</li>
+            </ul>
+        </div>
 
-        <h3>Senior HR Assistant | UNHCR | 2015 – 2020</h3>
-        <ul>
-            <li>Managed full recruitment lifecycle for multiple staff categories</li>
-            <li>Coordinated international staff onboarding & accreditation</li>
-            <li>Administered medical insurance systems for local personnel</li>
-            <li>Provided expert interpretation of UN staff rules & regulations</li>
-            <li>Improved medical claims processing efficiency</li>
-        </ul>
+        <!-- Entry Card 2 -->
+        <div class="entry-card">
+            <h3>Senior HR Assistant | UNHCR | 2015 – 2020</h3>
+            <ul>
+                <li>Managed full recruitment lifecycle for multiple staff categories</li>
+                <li>Coordinated international staff onboarding & accreditation</li>
+                <li>Administered medical insurance systems for local personnel</li>
+                <li>Provided expert interpretation of UN staff rules & regulations</li>
+                <li>Improved medical claims processing efficiency</li>
+            </ul>
+        </div>
 
-        <h3>Human Resources Associate | MINUSCA – UN Mission | 2014</h3>
-        <ul>
-            <li>Processed high-volume recruitment for mission-critical roles</li>
-            <li>Coordinated complex visa & international travel arrangements</li>
-            <li>Managed candidate evaluation & roster systems</li>
-            <li>Supported rapid deployment requirements</li>
-        </ul>
+        <!-- Entry Card 3 -->
+        <div class="entry-card">
+            <h3>Human Resources Associate | MINUSCA – UN Mission | 2014</h3>
+            <ul>
+                <li>Processed high-volume recruitment for mission-critical roles</li>
+                <li>Coordinated complex visa & international travel arrangements</li>
+                <li>Managed candidate evaluation & roster systems</li>
+                <li>Supported rapid deployment requirements</li>
+            </ul>
+        </div>
 
-        <h3>Human Resources Assistant | UNAMID – AU/UN Hybrid Mission | 2007 – 2015</h3>
-        <ul>
-            <li>Performance management & staff development coordination</li>
-            <li>Training program design & delivery</li>
-            <li>Financial monitoring & HR cost control</li>
-            <li>Expert policy advisory across AU & UN frameworks</li>
-        </ul>
+        <!-- Entry Card 4 -->
+        <div class="entry-card">
+            <h3>Human Resources Assistant | UNAMID – AU/UN Hybrid Mission | 2007 – 2015</h3>
+            <ul>
+                <li>Performance management & staff development coordination</li>
+                <li>Training program design & delivery</li>
+                <li>Financial monitoring & HR cost control</li>
+                <li>Expert policy advisory across AU & UN frameworks</li>
+            </ul>
+        </div>
 
-        <h3>HR Officer | Relief International | 2006 – 2007</h3>
-        <ul>
-            <li>Developed comprehensive HR strategy aligned with global objectives</li>
-            <li>Implemented performance management systems</li>
-            <li>Led change management initiatives</li>
-            <li>Established equal opportunity & diversity policies</li>
-        </ul>
+        <!-- Entry Card 5 -->
+        <div class="entry-card">
+            <h3>HR Officer | Relief International | 2006 – 2007</h3>
+            <ul>
+                <li>Developed comprehensive HR strategy aligned with global objectives</li>
+                <li>Implemented performance management systems</li>
+                <li>Led change management initiatives</li>
+                <li>Established equal opportunity & diversity policies</li>
+            </ul>
+        </div>
     </div>
 </section>
 
-<!-- Education & Languages Section -->
+<!-- Education & Languages Section (Background will be light gray) -->
 <section id="education" class="content-section">
     <div class="container">
         <h2>Education & Professional Development</h2>
