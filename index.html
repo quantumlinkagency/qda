@@ -137,6 +137,7 @@
         margin-bottom: 1.5rem;
         color: var(--primary);
         line-height: 1.4;
+        text-align: left; /* Override center for sub-headers */
     }
 
     p {
@@ -437,7 +438,7 @@
     }
 
     /* =========================================
-       8. EXPERIENCE & CONTACT (OLD STYLES)
+       8. EXPERIENCE STYLES
        ========================================= */
     .entry-card {
         background-color: #ffffff;
@@ -462,15 +463,15 @@
     }
 
     /* =========================================
-       9. NEW MODERN CONTACT SECTION STYLES
+       9. NEW EDUCATION & CONTACT SECTION STYLES
        ========================================= */
+    
+    /* --- Contact (From Previous Step) --- */
     .contact-wrapper {
         background-color: var(--bg-alt);
         position: relative;
         overflow: hidden;
     }
-    
-    /* Subtle background decoration */
     .contact-wrapper::before {
         content: '';
         position: absolute;
@@ -482,29 +483,22 @@
         border-radius: 50%;
         pointer-events: none;
     }
-
     .contact-header {
         text-align: center;
         max-width: 700px;
         margin: 0 auto 3.5rem auto;
     }
-
-    .contact-header h2 { margin-bottom: 1rem; }
-    
     .contact-subtitle {
         font-size: 1.1rem;
         color: var(--color-text-muted);
         font-weight: 500;
     }
-
     .contact-grid {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr; /* 60% / 40% split roughly */
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 3rem;
         align-items: start;
     }
-
-    /* Left Column: Info */
     .contact-info-panel {
         background: #ffffff;
         padding: 3rem;
@@ -512,20 +506,17 @@
         box-shadow: var(--shadow-sm);
         border: 1px solid #f1f5f9;
     }
-
     .contact-intro-text {
         font-size: 1.1rem;
         color: var(--text-main);
         margin-bottom: 2.5rem;
         line-height: 1.6;
     }
-
     .contact-details-list {
         list-style: none;
         padding: 0;
         margin: 0 0 2.5rem 0;
     }
-
     .contact-item {
         display: flex;
         align-items: flex-start;
@@ -534,11 +525,7 @@
         color: inherit;
         transition: transform 0.2s;
     }
-    
-    .contact-item:hover {
-        transform: translateX(5px);
-    }
-
+    .contact-item:hover { transform: translateX(5px); }
     .contact-icon-box {
         width: 48px;
         height: 48px;
@@ -553,12 +540,10 @@
         font-size: 1.25rem;
         transition: background-color 0.3s, color 0.3s;
     }
-
     .contact-item:hover .contact-icon-box {
         background-color: var(--primary);
         color: #fff;
     }
-
     .contact-info-content h4 {
         text-align: left;
         font-size: 1.1rem;
@@ -566,7 +551,6 @@
         margin-bottom: 0.25rem;
         color: var(--primary);
     }
-
     .contact-info-content p, .contact-info-content a {
         text-align: left;
         margin: 0;
@@ -575,18 +559,13 @@
         text-decoration: none;
         transition: color 0.2s;
     }
-    
-    .contact-info-content a:hover {
-        color: var(--accent);
-    }
-
+    .contact-info-content a:hover { color: var(--accent); }
     .social-row {
         display: flex;
         gap: 1rem;
         padding-top: 1.5rem;
         border-top: 1px solid #e2e8f0;
     }
-
     .social-btn {
         width: 44px;
         height: 44px;
@@ -600,7 +579,6 @@
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         border: 1px solid #e2e8f0;
     }
-
     .social-btn:hover {
         background-color: var(--accent);
         color: #fff;
@@ -608,23 +586,16 @@
         box-shadow: 0 5px 15px rgba(198, 161, 74, 0.3);
         border-color: var(--accent);
     }
-
-    /* Right Column: Form */
     .contact-form-panel {
         background: #ffffff;
         padding: 2.5rem;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-lg);
         border: 1px solid #f1f5f9;
-        /* Optional: Subtle glass effect hint */
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
     }
-
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-
+    .form-group { margin-bottom: 1.5rem; }
     .form-label {
         display: block;
         margin-bottom: 0.5rem;
@@ -632,7 +603,6 @@
         color: var(--text-main);
         font-size: 0.95rem;
     }
-
     .form-input, .form-textarea {
         width: 100%;
         padding: 0.85rem 1rem;
@@ -644,19 +614,13 @@
         border-radius: 8px;
         transition: all 0.3s ease;
     }
-
-    .form-textarea {
-        resize: vertical;
-        min-height: 120px;
-    }
-
+    .form-textarea { resize: vertical; min-height: 120px; }
     .form-input:focus, .form-textarea:focus {
         border-color: var(--accent);
         background-color: #fff;
         outline: none;
         box-shadow: 0 0 0 4px rgba(198, 161, 74, 0.15);
     }
-
     .submit-btn {
         width: 100%;
         padding: 1rem;
@@ -673,18 +637,11 @@
         justify-content: center;
         gap: 0.5rem;
     }
-
     .submit-btn:hover {
         background-color: #0a182e;
         transform: translateY(-2px);
         box-shadow: 0 10px 20px rgba(11, 31, 59, 0.15);
     }
-
-    .submit-btn:active {
-        transform: translateY(0);
-    }
-
-    /* Toast Notification */
     .toast {
         position: fixed;
         bottom: 30px;
@@ -703,13 +660,233 @@
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         z-index: 2000;
     }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast i { color: #10b981; font-size: 1.25rem; }
+
+    /* --- NEW EDUCATION SECTION STYLES --- */
     
-    .toast.show {
-        transform: translateY(0);
-        opacity: 1;
+    .edu-section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .edu-subtext {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+        max-width: 600px;
+        margin: 0.5rem auto 0;
     }
 
-    .toast i { color: #10b981; font-size: 1.25rem; }
+    /* Grid Layout: 60/40 Split */
+    .edu-layout-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+        .edu-layout-grid {
+            grid-template-columns: 3fr 2fr; /* 60% Left, 40% Right */
+            align-items: start;
+        }
+    }
+
+    /* Left Column: Timeline & Credentials */
+    .edu-timeline {
+        position: relative;
+        padding-left: 2rem;
+        border-left: 2px solid #e2e8f0;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Timeline Dot */
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -2.35rem; /* Adjust based on padding + border */
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        border: 3px solid var(--accent);
+        box-shadow: 0 0 0 2px rgba(198, 161, 74, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .timeline-item:hover::before {
+        transform: scale(1.2);
+        background: var(--accent);
+    }
+
+    .timeline-year {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .timeline-degree {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+    }
+
+    .timeline-school {
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    /* Credential Badge Card */
+    .credential-card {
+        background: linear-gradient(135deg, #fff, #fffbf0);
+        border: 1px solid rgba(198, 161, 74, 0.2);
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        box-shadow: 0 4px 15px rgba(198, 161, 74, 0.08);
+        transition: transform 0.3s;
+    }
+    
+    .credential-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .credential-icon {
+        font-size: 3rem;
+        color: var(--accent);
+        opacity: 0.8;
+    }
+
+    .credential-info h4 {
+        text-align: left;
+        font-size: 1.2rem;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+    }
+    
+    .credential-info p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #64748b;
+    }
+
+    /* Specialization Tags */
+    .specialization-container {
+        margin-top: 3rem;
+    }
+
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .spec-tag {
+        background-color: #f1f5f9;
+        color: var(--primary);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+    }
+
+    .spec-tag:hover {
+        background-color: var(--primary);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Right Column: Philosophy & Languages */
+    .philosophy-card {
+        background-color: #ffffff;
+        padding: 2.5rem;
+        border-radius: var(--radius-lg);
+        border-top: 4px solid var(--accent);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+    }
+    
+    .philosophy-card i {
+        font-size: 2rem;
+        color: rgba(198, 161, 74, 0.2);
+        margin-bottom: 1rem;
+    }
+
+    .philosophy-text {
+        font-family: var(--font-main);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+    }
+    
+    .philosophy-author {
+        display: block;
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent);
+        font-style: normal;
+    }
+
+    /* Language Cards */
+    .lang-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .lang-card {
+        background: #fff;
+        padding: 1.25rem;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s ease;
+    }
+    
+    .lang-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    }
+
+    .lang-name {
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .lang-level {
+        font-size: 0.85rem;
+        color: var(--color-text-muted);
+        background: #f1f5f9;
+        padding: 4px 10px;
+        border-radius: 4px;
+    }
+    
+    .lang-level.fluent { color: #059669; background: #d1fae5; }
+    .lang-level.intermediate { color: #d97706; background: #fef3c7; }
+
 
     /* =========================================
        10. NAVIGATION
@@ -838,7 +1015,7 @@
 
     @media (max-width: 900px) {
         .contact-grid { grid-template-columns: 1fr; }
-        .contact-form-panel { order: 1; } /* Form first on mobile/tablet */
+        .contact-form-panel { order: 1; }
         .contact-info-panel { order: 2; }
     }
 
@@ -888,8 +1065,11 @@
         .contact-grid { gap: 1.5rem; }
         .contact-info-panel, .contact-form-panel { padding: 1.5rem; }
         
-        /* Toast adjustment for mobile */
         .toast { left: 20px; right: 20px; bottom: 20px; width: auto; }
+        
+        /* Edu Mobile adjustments */
+        .edu-timeline { padding-left: 1.5rem; }
+        .timeline-item::before { left: -1.85rem; }
     }
     
     @media (max-width: 480px) {
@@ -899,6 +1079,9 @@
         
         .contact-intro-text { font-size: 1rem; }
         .contact-icon-box { width: 40px; height: 40px; }
+        
+        .credential-card { flex-direction: column; text-align: center; }
+        .credential-info h4 { text-align: center; }
     }
 </style>
 </head>
@@ -914,7 +1097,7 @@
             <li class="nav-item"><a href="#profile" class="nav-link">Profile</a></li>
             <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
             <li class="nav-item"><a href="#skills" class="nav-link">Expertise</a></li>
-            <li class="nav-item"><a href="#education" class="nav-link">Credentials</a></li>
+            <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
             <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
@@ -1138,49 +1321,114 @@
     </div>
 </section>
 
-<!-- Education Section -->
+<!-- REDESIGNED EDUCATION SECTION -->
 <section id="education" class="content-section">
     <div class="container">
-        <h2 class="reveal-on-scroll">Education & Professional Development</h2>
-        
-        <div class="education-basic-info reveal-on-scroll">
-            <h3>Academic Background</h3>
-            <ul class="bullet-list">
-                <li>MBA – Business Management</li>
-                <li>Postgraduate – Human Resources Management & Development</li>
-                <li>Diploma – Human Resources Management</li>
-                <li>BA – English Language & Literature</li>
-                <li>CIPD Associate Membership – Chartered Institute of Personnel and Development</li>
-            </ul>
-
-            <h3>Multilingual Advantage</h3>
-            <ul class="bullet-list">
-                <li>English – Fluent</li>
-                <li>Arabic – Fluent</li>
-                <li>French – Intermediate</li>
-            </ul>
-
-            <h3>Areas of Specialization</h3>
-            <ul class="bullet-list">
-                <li>Humanitarian HR Management</li>
-                <li>Emergency Staffing & Rapid Deployment</li>
-                <li>Organizational Transformation</li>
-                <li>International Talent Acquisition</li>
-                <li>Performance Management Systems</li>
-                <li>HR Systems Optimization</li>
-                <li>Policy Development & Compliance</li>
-                <li>Crisis Workforce Strategy</li>
-            </ul>
+        <div class="edu-section-header reveal-on-scroll">
+            <h2>Education & Professional Development</h2>
+            <p class="edu-subtext">A continuous journey of academic excellence and professional certification in Human Resources.</p>
         </div>
-        
+
+        <div class="edu-layout-grid">
+            <!-- LEFT COLUMN: Academic Journey & Credentials -->
+            <div class="edu-main reveal-on-scroll delay-100">
+                <h3>Academic Background</h3>
+                
+                <div class="edu-timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">Graduate</span>
+                        <h4 class="timeline-degree">MBA – Business Management</h4>
+                        <p class="timeline-school">University of Khartoum / Various</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-year">Postgraduate</span>
+                        <h4 class="timeline-degree">HR Management & Development</h4>
+                        <p class="timeline-school">Specialized Advanced Study</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-year">Undergraduate</span>
+                        <h4 class="timeline-degree">Diploma – Human Resources Management</h4>
+                        <p class="timeline-school">Professional Certification</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-year">Bachelor</span>
+                        <h4 class="timeline-degree">BA – English Language & Literature</h4>
+                        <p class="timeline-school">University of Khartoum</p>
+                    </div>
+                </div>
+
+                <!-- Credential Badge -->
+                <div class="credential-card">
+                    <div class="credential-icon">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <div class="credential-info">
+                        <h4>CIPD Associate Membership</h4>
+                        <p>Chartered Institute of Personnel and Development</p>
+                    </div>
+                </div>
+
+                <!-- Specializations -->
+                <div class="specialization-container">
+                    <h3>Areas of Specialization</h3>
+                    <div class="tag-cloud">
+                        <span class="spec-tag">Humanitarian HR</span>
+                        <span class="spec-tag">Emergency Staffing</span>
+                        <span class="spec-tag">Rapid Deployment</span>
+                        <span class="spec-tag">Org Transformation</span>
+                        <span class="spec-tag">Talent Acquisition</span>
+                        <span class="spec-tag">Performance Mgmt</span>
+                        <span class="spec-tag">HR Systems Optimization</span>
+                        <span class="spec-tag">Policy Development</span>
+                        <span class="spec-tag">Crisis Workforce Strategy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Philosophy & Languages -->
+            <div class="edu-sidebar reveal-on-scroll delay-200">
+                
+                <!-- Philosophy Card -->
+                <div class="philosophy-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p class="philosophy-text">
+                        I believe that effective humanitarian operations depend on resilient, well-structured workforce systems. Strategic HR leadership is not administrative — it is mission-critical infrastructure that enables organizations to deliver impact in the most challenging environments.
+                    </p>
+                    <span class="philosophy-author">— Munir Zakaria</span>
+                </div>
+
+                <!-- Languages Grid -->
+                <h3>Multilingual Advantage</h3>
+                <div class="lang-grid">
+                    <div class="lang-card">
+                        <span class="lang-name">English</span>
+                        <span class="lang-level fluent">Fluent</span>
+                    </div>
+                    <div class="lang-card">
+                        <span class="lang-name">Arabic</span>
+                        <span class="lang-level fluent">Native / Fluent</span>
+                    </div>
+                    <div class="lang-card">
+                        <span class="lang-name">French</span>
+                        <span class="lang-level intermediate">Intermediate</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" style="padding-bottom: 0;">
         <div class="section-separator"></div>
     </div>
 </section>
 
-<!-- NEW MODERN CONTACT SECTION -->
+<!-- CONTACT SECTION (From previous step) -->
 <section id="contact" class="contact-wrapper">
     <div class="container">
-        
         <div class="contact-header reveal-on-scroll">
             <h2>Let’s Connect</h2>
             <p class="contact-subtitle">Open to Senior HR Leadership & Strategic Consulting Opportunities</p>
@@ -1225,7 +1473,6 @@
                     </li>
                 </ul>
 
-                <!-- CTA Button as requested -->
                 <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Request" class="btn btn-accent btn-full" style="margin-bottom: 2rem;">
                     <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
                 </a>
@@ -1380,18 +1627,13 @@
 
             // Simulate API delay
             setTimeout(() => {
-                // Reset Form
                 contactForm.reset();
-                
-                // Reset Button
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.style.opacity = '1';
                 submitBtn.disabled = false;
 
-                // Show Toast
                 toast.classList.add('show');
 
-                // Hide Toast after 3 seconds
                 setTimeout(() => {
                     toast.classList.remove('show');
                 }, 4000);
