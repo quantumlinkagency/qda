@@ -704,9 +704,10 @@
         background-position: left;
     }
 
+    /* TIGHTENED TIMELINE SPACING */
     .timeline-item {
         position: relative;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
 
     /* Timeline Dot */
@@ -767,12 +768,12 @@
         box-shadow: 0 4px 15px rgba(198, 161, 74, 0.08);
         transition: transform 0.3s;
         
-        /* NEW: Enable positioning and overflow for glow */
+        /* Enable positioning and overflow for glow */
         position: relative;
         overflow: hidden;
     }
     
-    /* NEW: Subtle Glow Effect */
+    /* Subtle Glow Effect */
     .credential-card::after {
         content: '';
         position: absolute;
@@ -826,7 +827,7 @@
         font-size: 0.9rem;
         font-weight: 500;
         
-        /* NEW: Polished Transition */
+        /* Polished Transition */
         transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
         
         border: 1px solid transparent;
@@ -857,9 +858,12 @@
         margin-bottom: 1rem;
     }
 
+    /* IMPROVED PHILOSOPHY TYPOGRAPHY */
     .philosophy-text {
         font-family: var(--font-main);
-        font-size: 1.15rem;
+        font-size: 1.2rem;       /* Increased from 1.15rem */
+        font-weight: 500;        /* Added */
+        letter-spacing: -0.01em; /* Added */
         font-style: italic;
         color: var(--text-main);
         line-height: 1.6;
@@ -875,7 +879,7 @@
         font-style: normal;
     }
 
-    /* Language Cards */
+    /* Language Cards - ADDED HOVER DEPTH */
     .lang-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -895,6 +899,7 @@
     
     .lang-card:hover {
         border-color: var(--accent);
+        transform: translateY(-3px); /* Added hover depth */
         box-shadow: 0 4px 10px rgba(0,0,0,0.04);
     }
 
