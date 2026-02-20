@@ -51,7 +51,7 @@
 
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: var(--nav-height); /* Prevents header overlap on anchor jump */
+        scroll-padding-top: var(--nav-height);
         font-size: 16px;
     }
 
@@ -64,7 +64,7 @@
         padding-top: var(--nav-height);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-x: hidden;
     }
 
     /* Accessibility: Focus Styles */
@@ -82,7 +82,7 @@
         max-width: 1100px;
         margin: 0 auto;
         padding: 80px 0; 
-        contain: layout; /* Performance hint for browser */
+        contain: layout;
     }
 
     .section-separator {
@@ -106,7 +106,7 @@
     }
 
     h1 {
-        font-size: clamp(2rem, 5vw, 2.75rem); /* Fluid Typography */
+        font-size: clamp(2rem, 5vw, 2.75rem);
         font-weight: 700;
         line-height: 1.15;
         margin-bottom: 1.5rem;
@@ -181,7 +181,6 @@
         height: 100%;
         position: relative;
         overflow: hidden;
-        /* Performance: Promote to GPU layer on hover */
         will-change: transform, box-shadow;
         backface-visibility: hidden;
     }
@@ -328,7 +327,6 @@
             linear-gradient(rgba(11, 31, 59, 0.03) 1px, transparent 1px),
             linear-gradient(90deg, rgba(11, 31, 59, 0.03) 1px, transparent 1px);
         background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-        /* Parallax effect disabled for performance, using fixed attachment */
         background-attachment: fixed; 
     }
 
@@ -389,7 +387,7 @@
         cursor: pointer;
         letter-spacing: -0.01em;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        touch-action: manipulation; /* Improves touch response */
+        touch-action: manipulation;
         position: relative;
         overflow: hidden;
     }
@@ -432,9 +430,14 @@
         color: white;
         transform: translateY(-2px);
     }
+    
+    .btn-full {
+        width: 100%;
+        justify-content: center;
+    }
 
     /* =========================================
-       8. EXPERIENCE & CONTACT
+       8. EXPERIENCE & CONTACT (OLD STYLES)
        ========================================= */
     .entry-card {
         background-color: #ffffff;
@@ -458,119 +461,258 @@
         color: var(--primary);
     }
 
-    /* Contact Panel */
-    .edu-contact-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: var(--space-8);
-        align-items: start;
-    }
-
-    .contact-panel {
-        background-color: var(--primary);
-        color: #ffffff;
-        border-radius: var(--radius-lg);
-        padding: var(--space-8);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: var(--shadow-lg);
+    /* =========================================
+       9. NEW MODERN CONTACT SECTION STYLES
+       ========================================= */
+    .contact-wrapper {
+        background-color: var(--bg-alt);
         position: relative;
         overflow: hidden;
     }
+    
+    /* Subtle background decoration */
+    .contact-wrapper::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(198, 161, 74, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
 
-    .contact-panel-header {
+    .contact-header {
         text-align: center;
-        margin-bottom: var(--space-6);
+        max-width: 700px;
+        margin: 0 auto 3.5rem auto;
     }
 
-    .contact-panel-header i {
-        font-size: 2.5rem;
-        color: var(--accent);
-        margin-bottom: 1rem;
+    .contact-header h2 { margin-bottom: 1rem; }
+    
+    .contact-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
     }
 
-    .contact-panel h3 { color: #ffffff; margin-top: 0; }
-
-    .contact-panel-body p {
-        color: rgba(255, 255, 255, 0.85);
-        margin-bottom: 1.5rem;
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr; /* 60% / 40% split roughly */
+        gap: 3rem;
+        align-items: start;
     }
 
-    .contact-panel .contact-details {
-        margin-top: 1rem;
+    /* Left Column: Info */
+    .contact-info-panel {
+        background: #ffffff;
+        padding: 3rem;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid #f1f5f9;
+    }
+
+    .contact-intro-text {
+        font-size: 1.1rem;
+        color: var(--text-main);
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+    }
+
+    .contact-details-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2.5rem 0;
+    }
+
+    .contact-item {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s;
+    }
+    
+    .contact-item:hover {
+        transform: translateX(5px);
     }
 
-    .contact-panel .contact-item {
+    .contact-icon-box {
+        width: 48px;
+        height: 48px;
+        background-color: rgba(198, 161, 74, 0.1);
+        border-radius: 12px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        margin-right: 1.25rem;
+        flex-shrink: 0;
+        color: var(--accent);
+        font-size: 1.25rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .contact-item:hover .contact-icon-box {
+        background-color: var(--primary);
         color: #fff;
     }
 
-    .contact-panel .contact-item a {
-        color: #fff;
-        font-weight: 500;
+    .contact-info-content h4 {
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: var(--primary);
+    }
+
+    .contact-info-content p, .contact-info-content a {
+        text-align: left;
+        margin: 0;
+        font-size: 1rem;
+        color: var(--color-text-muted);
         text-decoration: none;
         transition: color 0.2s;
     }
-
-    .contact-panel .contact-item a:hover { color: var(--accent); }
-
-    .contact-panel .contact-item i {
-        margin-right: 12px;
+    
+    .contact-info-content a:hover {
         color: var(--accent);
-        width: 20px;
-        text-align: center;
     }
 
-    .contact-panel-footer {
-        margin-top: auto;
-        padding-top: var(--space-6);
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    .social-row {
         display: flex;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .social-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: var(--light);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .footer-social-link {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
         text-decoration: none;
-        display: inline-block;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid #e2e8f0;
     }
 
-    .footer-social-link:hover {
-        color: var(--accent);
+    .social-btn:hover {
+        background-color: var(--accent);
+        color: #fff;
         transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(198, 161, 74, 0.3);
+        border-color: var(--accent);
     }
 
-    /* Philosophy */
-    .philosophy-manifesto {
-        background-color: var(--bg-alt);
+    /* Right Column: Form */
+    .contact-form-panel {
+        background: #ffffff;
+        padding: 2.5rem;
         border-radius: var(--radius-lg);
-        padding: var(--space-8);
-        margin: 4rem auto;
-        text-align: center;
-        max-width: 900px;
-        position: relative;
-        border-top: 4px solid var(--accent);
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid #f1f5f9;
+        /* Optional: Subtle glass effect hint */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
-    .manifesto-text {
-        font-size: 1.25rem;
-        line-height: 1.6;
-        color: var(--text-main);
-        font-weight: 500;
-        font-style: italic;
+    .form-group {
+        margin-bottom: 1.5rem;
     }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-main);
+        font-size: 0.95rem;
+    }
+
+    .form-input, .form-textarea {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        font-family: var(--font-main);
+        font-size: 1rem;
+        color: var(--text-main);
+        background-color: #fcfcfc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+        border-color: var(--accent);
+        background-color: #fff;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(198, 161, 74, 0.15);
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .submit-btn:hover {
+        background-color: #0a182e;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(11, 31, 59, 0.15);
+    }
+
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    /* Toast Notification */
+    .toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #fff;
+        color: var(--text-main);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-left: 5px solid var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 2000;
+    }
+    
+    .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .toast i { color: #10b981; font-size: 1.25rem; }
 
     /* =========================================
-       9. NAVIGATION
+       10. NAVIGATION
        ========================================= */
     .navbar {
         position: fixed;
@@ -655,9 +797,8 @@
     }
 
     /* =========================================
-       10. ANIMATION UTILITIES
+       11. ANIMATION UTILITIES
        ========================================= */
-    /* Default state for scroll animations */
     .reveal-on-scroll {
         opacity: 0;
         transform: translateY(30px);
@@ -665,18 +806,15 @@
         will-change: opacity, transform;
     }
 
-    /* Active state triggered by JS */
     .reveal-on-scroll.is-visible {
         opacity: 1;
         transform: translateY(0);
     }
 
-    /* Stagger delays for child elements */
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
 
-    /* Respect user preference for reduced motion */
     @media (prefers-reduced-motion: reduce) {
         * {
             animation-duration: 0.01ms !important;
@@ -691,11 +829,17 @@
     }
 
     /* =========================================
-       11. RESPONSIVE DESIGN
+       12. RESPONSIVE DESIGN
        ========================================= */
+    @media (max-width: 1024px) {
+        .contact-grid { gap: 2rem; }
+        .contact-info-panel, .contact-form-panel { padding: 2rem; }
+    }
+
     @media (max-width: 900px) {
-        .edu-contact-grid { grid-template-columns: 1fr; }
-        .contact-panel { padding: var(--space-6); }
+        .contact-grid { grid-template-columns: 1fr; }
+        .contact-form-panel { order: 1; } /* Form first on mobile/tablet */
+        .contact-info-panel { order: 2; }
     }
 
     @media (max-width: 768px) {
@@ -734,18 +878,27 @@
             width: 100%;
         }
 
-        .hero { background-attachment: scroll; } /* Disable fixed background on mobile for performance */
+        .hero { background-attachment: scroll; } 
         
         .cta-container { flex-direction: column; width: 100%; }
         .btn { width: 100%; }
         
         .entry-card { padding: 2rem; }
+        
+        .contact-grid { gap: 1.5rem; }
+        .contact-info-panel, .contact-form-panel { padding: 1.5rem; }
+        
+        /* Toast adjustment for mobile */
+        .toast { left: 20px; right: 20px; bottom: 20px; width: auto; }
     }
     
     @media (max-width: 480px) {
         h1 { font-size: 1.75rem; }
         .subtitle { font-size: 1.25rem; }
         .metric-value { font-size: 2.25rem; }
+        
+        .contact-intro-text { font-size: 1rem; }
+        .contact-icon-box { width: 40px; height: 40px; }
     }
 </style>
 </head>
@@ -761,7 +914,8 @@
             <li class="nav-item"><a href="#profile" class="nav-link">Profile</a></li>
             <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
             <li class="nav-item"><a href="#skills" class="nav-link">Expertise</a></li>
-            <li class="nav-item"><a href="#education" class="nav-link">Credentials & Contact</a></li>
+            <li class="nav-item"><a href="#education" class="nav-link">Credentials</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
             <span class="bar"></span>
@@ -781,7 +935,7 @@
             <a href="#cv" class="btn btn-primary">
                 <i class="fa-solid fa-download"></i> Download CV
             </a>
-            <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Inquiry" class="btn btn-secondary">
+            <a href="#contact" class="btn btn-secondary">
                 <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
             </a>
             <a href="#" target="_blank" class="btn btn-accent">
@@ -984,7 +1138,7 @@
     </div>
 </section>
 
-<!-- Education & Credentials Section -->
+<!-- Education Section -->
 <section id="education" class="content-section">
     <div class="container">
         <h2 class="reveal-on-scroll">Education & Professional Development</h2>
@@ -1018,78 +1172,133 @@
                 <li>Crisis Workforce Strategy</li>
             </ul>
         </div>
+        
+        <div class="section-separator"></div>
+    </div>
+</section>
 
-        <!-- PROFESSIONAL PHILOSOPHY COMPONENT -->
-        <div class="philosophy-manifesto reveal-on-scroll">
-            <i class="fa-solid fa-quote-left manifesto-icon"></i>
-            <h3>Professional Philosophy</h3>
-            <p class="manifesto-text">
-                I believe that effective humanitarian operations depend on resilient, well-structured workforce systems. Strategic HR leadership is not administrative — it is mission-critical infrastructure that enables organizations to deliver impact in the most challenging environments.
-            </p>
+<!-- NEW MODERN CONTACT SECTION -->
+<section id="contact" class="contact-wrapper">
+    <div class="container">
+        
+        <div class="contact-header reveal-on-scroll">
+            <h2>Let’s Connect</h2>
+            <p class="contact-subtitle">Open to Senior HR Leadership & Strategic Consulting Opportunities</p>
         </div>
 
-        <!-- GRID LAYOUT: 2 Columns -->
-        <div class="edu-contact-grid">
-            <div class="education-details"></div> <!-- Spacer/Layout Balance -->
+        <div class="contact-grid">
+            <!-- LEFT COLUMN: Contact Info -->
+            <div class="contact-info-panel reveal-on-scroll delay-100">
+                <p class="contact-intro-text">
+                    I am currently available for senior roles and consulting engagements. If you are looking for strategic HR leadership to navigate complex workforce challenges, let's start a conversation.
+                </p>
 
-            <div class="contact-panel reveal-on-scroll">
-                <div class="contact-panel-header">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <h3>Open to Opportunities</h3>
-                </div>
-                
-                <div class="contact-panel-body">
-                    <p>I am currently available for Senior HR Leadership roles, organizational transformation initiatives, and strategic consulting engagements.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
+                <ul class="contact-details-list">
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
                             <i class="fa-solid fa-location-dot"></i>
-                            <span>Khartoum, Sudan</span>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-info-content">
+                            <h4>Location</h4>
+                            <p>Khartoum, Sudan</p>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
                             <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Email</h4>
                             <a href="mailto:munirmoh@gmail.com">munirmoh@gmail.com</a>
                         </div>
-                        <div class="contact-item">
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
                             <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Phone</h4>
                             <a href="tel:+2499123371234">+249 912 337 [1234]</a>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
 
-                <div class="contact-panel-footer">
-                    <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin"></i>
+                <!-- CTA Button as requested -->
+                <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Request" class="btn btn-accent btn-full" style="margin-bottom: 2rem;">
+                    <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
+                </a>
+
+                <div class="social-row">
+                    <a href="#" class="social-btn" target="_blank" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
                     </a>
-                    <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email">
+                    <a href="mailto:munirmoh@gmail.com" class="social-btn" aria-label="Email">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
-                    <a href="#" class="footer-social-link" target="_blank" aria-label="ResearchGate">
+                    <a href="#" class="social-btn" target="_blank" aria-label="ResearchGate">
                         <i class="fa-brands fa-researchgate"></i>
                     </a>
                 </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Contact Form -->
+            <div class="contact-form-panel reveal-on-scroll delay-200">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="john@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization" class="form-label">Organization</label>
+                        <input type="text" id="organization" class="form-input" placeholder="Company Name / NGO">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-textarea" placeholder="How can I support your HR objectives?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-socials">
-            <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn">
+<footer class="footer" style="background: var(--primary); padding: 40px 0; color: white; text-align: center;">
+    <div class="container" style="padding: 0;">
+        <div style="margin-bottom: 1.5rem;">
+            <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 10px; transition: color 0.3s;">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email">
+            <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 10px; transition: color 0.3s;">
                 <i class="fa-solid fa-envelope"></i>
             </a>
-            <a href="#" class="footer-social-link" target="_blank" aria-label="ResearchGate">
-                <i class="fa-brands fa-researchgate"></i>
-            </a>
         </div>
-        <p>© 2026 Munir Zakaria. All Rights Reserved.</p>
+        <p style="color: rgba(255,255,255,0.5); margin: 0; font-size: 0.9rem;">© 2026 Munir Zakaria. All Rights Reserved.</p>
     </div>
 </footer>
+
+<!-- Toast Notification Element -->
+<div id="toast" class="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <div>
+        <h4 style="margin:0; font-size: 1rem; color: var(--text-main);">Message Sent</h4>
+        <p style="margin:0; font-size: 0.85rem; color: #64748b;">I will get back to you shortly.</p>
+    </div>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1107,7 +1316,6 @@
                 navMenu.classList.toggle('active');
             });
 
-            // Close menu when clicking a link
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
@@ -1118,9 +1326,7 @@
         }
 
         // --- 2. Optimized Navbar Scroll Effect ---
-        // Using requestAnimationFrame to prevent layout thrashing
         const navbar = document.querySelector('.navbar');
-        let lastScrollY = window.scrollY;
         let ticking = false;
 
         function updateNavbar() {
@@ -1133,26 +1339,23 @@
         }
 
         window.addEventListener('scroll', () => {
-            lastScrollY = window.scrollY;
             if (!ticking) {
                 window.requestAnimationFrame(updateNavbar);
                 ticking = true;
             }
-        }, { passive: true }); // Passive listener improves scroll performance
+        }, { passive: true });
 
         // --- 3. Intersection Observer for Scroll Animations ---
-        // This triggers animations only when elements enter the viewport
         const observerOptions = {
-            root: null, // viewport
+            root: null,
             rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of element is visible
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Stop observing once visible to save resources
                     observer.unobserve(entry.target); 
                 }
             });
@@ -1160,6 +1363,41 @@
 
         const scrollElements = document.querySelectorAll('.reveal-on-scroll');
         scrollElements.forEach(el => observer.observe(el));
+
+        // --- 4. Contact Form Handling ---
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const submitBtn = document.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate button loading state
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            submitBtn.style.opacity = '0.8';
+            submitBtn.disabled = true;
+
+            // Simulate API delay
+            setTimeout(() => {
+                // Reset Form
+                contactForm.reset();
+                
+                // Reset Button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+
+                // Show Toast
+                toast.classList.add('show');
+
+                // Hide Toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+
+            }, 1500);
+        });
     });
 </script>
 
