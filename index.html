@@ -695,7 +695,7 @@
     .edu-timeline {
         position: relative;
         padding-left: 2rem;
-        /* UPGRADED TIMELINE LINE DESIGN */
+        /* PREMIUM TIMELINE LINE DESIGN */
         border-left: 2px solid rgba(198,161,74,0.3);
         background-image: linear-gradient(to bottom, 
             rgba(198,161,74,0.08), 
@@ -739,9 +739,9 @@
         display: block;
     }
 
-    /* --- REFINED ACADEMIC TITLES --- */
+    /* REFINED ACADEMIC TITLES */
     .timeline-degree {
-        font-size: 1.35rem;   /* Slightly bigger */
+        font-size: 1.35rem;   
         font-weight: 700;
         letter-spacing: -0.01em;
         color: var(--primary);
@@ -754,7 +754,7 @@
         font-weight: 500;
     }
 
-    /* Credential Badge Card */
+    /* Credential Badge Card - ELEVATED */
     .credential-card {
         background: linear-gradient(135deg, #fff, #fffbf0);
         border: 1px solid rgba(198, 161, 74, 0.2);
@@ -766,6 +766,22 @@
         gap: 1.5rem;
         box-shadow: 0 4px 15px rgba(198, 161, 74, 0.08);
         transition: transform 0.3s;
+        
+        /* NEW: Enable positioning and overflow for glow */
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* NEW: Subtle Glow Effect */
+    .credential-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(198,161,74,0.2), transparent 70%);
+        pointer-events: none;
     }
     
     .credential-card:hover {
@@ -791,7 +807,7 @@
         color: #64748b;
     }
 
-    /* Specialization Tags */
+    /* Specialization Tags - ENHANCED ANIMATION */
     .specialization-container {
         margin-top: 3rem;
     }
@@ -809,7 +825,10 @@
         border-radius: 50px;
         font-size: 0.9rem;
         font-weight: 500;
-        transition: all 0.2s ease;
+        
+        /* NEW: Polished Transition */
+        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        
         border: 1px solid transparent;
     }
 
