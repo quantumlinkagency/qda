@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"> <!-- Added max-scale for accessibility -->
 <title>Munir Zakaria | Senior Human Resources Leader</title>
 <meta name="description" content="Portfolio of Munir Zakaria, a Senior Human Resources Leader specializing in strategic HR, crisis workforce management, and international recruitment.">
 
-<!-- Google Fonts: Optimized with display=swap -->
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- FontAwesome: Professional Icons -->
+<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
 <style>
@@ -27,19 +27,22 @@
         --text-main: #1e293b;
         
         /* Spacing System */
-        --space-4: 1rem;
-        --space-6: 1.5rem;
-        --space-8: 2.5rem;
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2.5rem;
+        --space-xl: 4rem;
         
-        /* Elevation System */
+        /* Layout */
+        --nav-height: 70px;
+        --container-max: 1280px; /* Increased for Large Desktops */
+        --font-main: 'Inter', sans-serif;
+        
+        /* Effects */
         --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        
-        /* Typography & Layout */
-        --nav-height: 70px;
-        --font-main: 'Inter', sans-serif;
-        --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         --radius-lg: 16px;
+        --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         --color-text-muted: #64748b;
     }
 
@@ -51,42 +54,42 @@
 
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: var(--nav-height);
+        scroll-padding-top: calc(var(--nav-height) + 20px);
         font-size: 16px;
     }
 
     body {
         font-family: var(--font-main);
         font-weight: 400;
-        line-height: 1.7;
+        line-height: 1.6;
         background-color: var(--light);
         color: var(--text-main);
         padding-top: var(--nav-height);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
+        overflow-x: hidden; /* Critical for preventing horizontal scroll */
+        width: 100%;
     }
 
-    /* Accessibility: Focus Styles */
+    /* Accessibility: Focus */
     :focus-visible {
         outline: 2px solid var(--accent);
-        outline-offset: 4px;
-        border-radius: 4px;
+        outline-offset: 2px;
     }
 
     /* =========================================
        2. LAYOUT UTILITIES
        ========================================= */
     .container {
-        width: 90%;
-        max-width: 1100px;
+        width: 92%; /* Increased slightly from 90% for 320px screens */
+        max-width: var(--container-max);
         margin: 0 auto;
-        padding: 80px 0; 
-        contain: layout;
+        padding: 5rem 0;
+        position: relative;
     }
 
     .section-separator {
-        margin-top: 60px;
+        margin-top: 3rem;
         width: 100%;
         height: 1px;
         background: linear-gradient(to right, transparent, rgba(198, 161, 74, 0.3), transparent);
@@ -106,16 +109,16 @@
     }
 
     h1 {
-        font-size: clamp(2rem, 5vw, 2.75rem);
+        /* Fluid typography: min 2rem, preferred 5vw, max 3.5rem */
+        font-size: clamp(2rem, 4vw, 3.5rem);
         font-weight: 700;
-        line-height: 1.15;
         margin-bottom: 1.5rem;
     }
 
     h2 {
-        font-size: 1.875rem;
+        font-size: clamp(1.5rem, 3vw, 2rem);
         font-weight: 600;
-        margin: 3.5rem auto 1.5rem;
+        margin: 3rem auto 1.5rem;
         padding-bottom: 15px;
         position: relative;
     }
@@ -131,13 +134,13 @@
     }
 
     h3 {
-        font-size: 1.35rem;
+        font-size: clamp(1.1rem, 2vw, 1.35rem);
         font-weight: 600;
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
         color: var(--primary);
         line-height: 1.4;
-        text-align: left; /* Override center for sub-headers */
+        text-align: left;
     }
 
     p {
@@ -149,22 +152,24 @@
 
     ul.bullet-list {
         margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
+        padding-left: 1.25rem;
         text-align: left;
     }
     ul.bullet-list li {
         margin-bottom: 0.75rem;
         font-size: 1.05rem;
         color: #334155;
+        padding-left: 0.5rem;
     }
 
     /* =========================================
-       4. INTERACTIVE COMPONENTS (CARDS)
+       4. INTERACTIVE COMPONENTS
        ========================================= */
+    /* Grid: Auto-fit ensures no overflow, minmax sets breakpoints */
     .grid--auto-fit {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: var(--space-6);
+        gap: var(--space-md);
         margin-top: 2rem;
     }
 
@@ -172,7 +177,7 @@
         background-color: #ffffff;
         border: 1px solid #f1f5f9;
         border-radius: var(--radius-lg);
-        padding: var(--space-8);
+        padding: var(--space-lg);
         box-shadow: var(--shadow-sm);
         transition: var(--transition-smooth);
         display: flex;
@@ -182,28 +187,22 @@
         height: 100%;
         position: relative;
         overflow: hidden;
-        will-change: transform, box-shadow;
-        backface-visibility: hidden;
     }
 
     .card::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
+        top: 0; left: 0; width: 100%; height: 4px;
         background: linear-gradient(90deg, var(--accent), #dfc078);
         opacity: 0;
         transition: opacity 0.3s ease;
     }
 
     .card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-5px);
         box-shadow: var(--shadow-lg);
         border-color: rgba(198, 161, 74, 0.3);
     }
-
     .card:hover::before { opacity: 1; }
 
     .card__icon {
@@ -212,15 +211,13 @@
         margin-bottom: 1.5rem;
         transition: transform 0.3s ease;
     }
-
     .card:hover .card__icon { transform: scale(1.1); }
 
     .card__title {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--primary);
         margin-bottom: 1rem;
-        letter-spacing: -0.02em;
     }
 
     .card__body {
@@ -234,81 +231,64 @@
        ========================================= */
     .metrics-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
         margin-top: 2rem;
-        margin-bottom: 3rem;
     }
 
     .metric-card {
         background-color: #fff;
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.5rem;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         border: 1px solid #f1f5f9;
         text-align: center;
-        transition: transform 0.3s ease;
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
     }
-
-    .metric-card:hover { transform: translateY(-5px); }
 
     .metric-value {
-        font-size: 2.75rem;
+        font-size: clamp(2rem, 4vw, 2.75rem);
         font-weight: 700;
         color: var(--accent);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
         line-height: 1.1;
-        letter-spacing: -0.03em;
-    }
-
-    .metric-card.text-heavy .metric-value {
-        font-size: 1.75rem;
-        font-weight: 600;
-        color: var(--primary);
     }
 
     .skill-list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
         list-style: none;
         padding: 0;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     .skill-list li {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 8px;
-        padding: 14px 18px;
+        padding: 12px 16px;
         display: flex;
         align-items: center;
         transition: all 0.2s ease;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        margin-bottom: 0;
-        text-align: left;
+        font-size: 0.95rem;
     }
 
     .skill-list li:hover {
         border-color: var(--accent);
         transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+        background: #fffbf0;
     }
 
     .skill-list li i {
         color: var(--accent);
-        width: 24px;
-        margin-right: 14px;
-        font-size: 0.95rem;
-        opacity: 0.6;
+        margin-right: 12px;
+        font-size: 1rem;
     }
     
-    .skill-text { font-size: 0.95rem; font-weight: 500; color: #334155; }
+    .skill-text { font-weight: 500; color: #334155; }
 
     /* =========================================
        6. SECTIONS & HERO
@@ -324,36 +304,28 @@
         background-color: #ffffff;
         background-image: 
             radial-gradient(circle at 10% 90%, rgba(11, 31, 59, 0.03) 0%, transparent 40%),
-            radial-gradient(circle at 90% 10%, rgba(198, 161, 74, 0.06) 0%, transparent 35%),
-            linear-gradient(rgba(11, 31, 59, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(11, 31, 59, 0.03) 1px, transparent 1px);
-        background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-        background-attachment: fixed; 
-    }
-
-    .hero .container {
-        position: relative;
-        z-index: 1;
+            radial-gradient(circle at 90% 10%, rgba(198, 161, 74, 0.06) 0%, transparent 35%);
         text-align: center;
     }
 
-    .hero p { text-align: center; }
-
     .subtitle { 
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 500;
         color: var(--primary);
         margin-bottom: 1.5rem;
-        line-height: 1.4;
     }
 
     .subheadline { 
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 600;
         color: var(--accent);
-        margin-bottom: 2.5rem;
-        letter-spacing: 0.08em;
+        margin-bottom: 2rem;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
+        line-height: 1.5;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .cta-container {
@@ -362,6 +334,10 @@
         flex-wrap: wrap;
         margin-top: 1.5rem;
         justify-content: center;
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .content-section {
@@ -375,37 +351,31 @@
        7. BUTTONS
        ========================================= */
     .btn {
-        font-family: var(--font-main);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 14px 32px;
+        padding: 12px 28px;
         font-size: 0.95rem;
         font-weight: 600;
         text-decoration: none;
         border-radius: 50px;
         border: 2px solid transparent;
         cursor: pointer;
-        letter-spacing: -0.01em;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        touch-action: manipulation;
-        position: relative;
-        overflow: hidden;
+        transition: var(--transition-smooth);
+        width: auto; /* Allow auto width on desktop */
+        min-width: fit-content;
     }
 
-    .btn i { margin-right: 10px; font-size: 1rem; transition: transform 0.3s ease; }
-    .btn:hover i { transform: translateX(3px); }
-
+    .btn i { margin-right: 8px; }
+    
     .btn-primary {
         background-color: var(--primary);
         color: white;
         border-color: var(--primary);
     }
-
     .btn-primary:hover {
         background-color: transparent;
         color: var(--primary);
-        transform: translateY(-2px);
     }
 
     .btn-secondary {
@@ -413,11 +383,9 @@
         color: var(--primary);
         border-color: var(--primary);
     }
-
     .btn-secondary:hover {
         background-color: var(--primary);
         color: white;
-        transform: translateY(-2px);
     }
 
     .btn-accent {
@@ -425,296 +393,57 @@
         color: var(--accent);
         border-color: var(--accent);
     }
-
     .btn-accent:hover {
         background-color: var(--accent);
         color: white;
-        transform: translateY(-2px);
     }
     
     .btn-full {
         width: 100%;
-        justify-content: center;
     }
 
     /* =========================================
-       8. EXPERIENCE STYLES
+       8. EXPERIENCE & CARDS
        ========================================= */
     .entry-card {
         background-color: #ffffff;
         border-radius: 16px;
-        padding: 2.5rem;
-        margin-bottom: 2.5rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease;
         text-align: left;
     }
-
-    .entry-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    .entry-card h3 {
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
-        color: var(--primary);
-    }
+    .entry-card:hover { transform: translateY(-3px); }
+    .entry-card h3 { margin-top: 0; font-size: 1.25rem; }
 
     /* =========================================
-       9. NEW EDUCATION & CONTACT SECTION STYLES
+       9. EDUCATION & TIMELINE (RESPONSIVE FOCUS)
        ========================================= */
-    
-    /* --- Contact (From Previous Step) --- */
-    .contact-wrapper {
-        background-color: var(--bg-alt);
-        position: relative;
-        overflow: hidden;
-    }
-    .contact-wrapper::before {
-        content: '';
-        position: absolute;
-        top: -100px;
-        right: -100px;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(198, 161, 74, 0.08) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-    }
-    .contact-header {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 3.5rem auto;
-    }
-    .contact-subtitle {
-        font-size: 1.1rem;
-        color: var(--color-text-muted);
-        font-weight: 500;
-    }
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 3rem;
-        align-items: start;
-    }
-    .contact-info-panel {
-        background: #ffffff;
-        padding: 3rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-sm);
-        border: 1px solid #f1f5f9;
-    }
-    .contact-intro-text {
-        font-size: 1.1rem;
-        color: var(--text-main);
-        margin-bottom: 2.5rem;
-        line-height: 1.6;
-    }
-    .contact-details-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 2.5rem 0;
-    }
-    .contact-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 1.5rem;
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.2s;
-    }
-    .contact-item:hover { transform: translateX(5px); }
-    .contact-icon-box {
-        width: 48px;
-        height: 48px;
-        background-color: rgba(198, 161, 74, 0.1);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1.25rem;
-        flex-shrink: 0;
-        color: var(--accent);
-        font-size: 1.25rem;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .contact-item:hover .contact-icon-box {
-        background-color: var(--primary);
-        color: #fff;
-    }
-    .contact-info-content h4 {
-        text-align: left;
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.25rem;
-        color: var(--primary);
-    }
-    .contact-info-content p, .contact-info-content a {
-        text-align: left;
-        margin: 0;
-        font-size: 1rem;
-        color: var(--color-text-muted);
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    .contact-info-content a:hover { color: var(--accent); }
-    .social-row {
-        display: flex;
-        gap: 1rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid #e2e8f0;
-    }
-    .social-btn {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background-color: var(--light);
-        color: var(--primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        border: 1px solid #e2e8f0;
-    }
-    .social-btn:hover {
-        background-color: var(--accent);
-        color: #fff;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(198, 161, 74, 0.3);
-        border-color: var(--accent);
-    }
-    .contact-form-panel {
-        background: #ffffff;
-        padding: 2.5rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lg);
-        border: 1px solid #f1f5f9;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: var(--text-main);
-        font-size: 0.95rem;
-    }
-    .form-input, .form-textarea {
-        width: 100%;
-        padding: 0.85rem 1rem;
-        font-family: var(--font-main);
-        font-size: 1rem;
-        color: var(--text-main);
-        background-color: #fcfcfc;
-        border: 2px solid #e2e8f0;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-    .form-textarea { resize: vertical; min-height: 120px; }
-    .form-input:focus, .form-textarea:focus {
-        border-color: var(--accent);
-        background-color: #fff;
-        outline: none;
-        box-shadow: 0 0 0 4px rgba(198, 161, 74, 0.15);
-    }
-    .submit-btn {
-        width: 100%;
-        padding: 1rem;
-        background-color: var(--primary);
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-    .submit-btn:hover {
-        background-color: #0a182e;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(11, 31, 59, 0.15);
-    }
-    .toast {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background-color: #fff;
-        color: var(--text-main);
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        border-left: 5px solid var(--accent);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        transform: translateY(100px);
-        opacity: 0;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        z-index: 2000;
-    }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast i { color: #10b981; font-size: 1.25rem; }
-
-    /* --- NEW EDUCATION SECTION STYLES --- */
-    
-    .edu-section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    
-    .edu-subtext {
-        font-size: 1.1rem;
-        color: var(--color-text-muted);
-        max-width: 600px;
-        margin: 0.5rem auto 0;
-    }
-
-    /* Grid Layout: 60/40 Split */
     .edu-layout-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 3rem;
     }
 
-    @media (min-width: 1024px) {
-        .edu-layout-grid {
-            grid-template-columns: 3fr 2fr; /* 60% Left, 40% Right */
-            align-items: start;
-        }
-    }
-
-    /* Left Column: Timeline & Credentials */
+    /* Timeline Logic */
     .edu-timeline {
         position: relative;
-        padding-left: 2rem;
-        /* PREMIUM TIMELINE LINE DESIGN */
-        border-left: 2px solid rgba(198,161,74,0.3);
-        background-image: linear-gradient(to bottom, 
-            rgba(198,161,74,0.08), 
-            transparent 40%);
-        background-repeat: no-repeat;
-        background-position: left;
+        padding-left: 2rem; /* Base Desktop Padding */
+        border-left: 2px solid rgba(198,161,74,0.2);
     }
 
-    /* TIGHTENED TIMELINE SPACING */
     .timeline-item {
         position: relative;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 
-    /* Timeline Dot */
+    /* Dot Positioning relative to padding-left */
     .timeline-item::before {
         content: '';
         position: absolute;
-        left: -2.35rem; /* Adjust based on padding + border */
+        /* Calculation: Padding (2rem = 32px) + Border (2px) + Adjustment (centering) */
+        left: -2.35rem; 
         top: 6px;
         width: 14px;
         height: 14px;
@@ -726,7 +455,7 @@
     }
 
     .timeline-item:hover::before {
-        transform: scale(1.2);
+        transform: scale(1.3);
         background: var(--accent);
     }
 
@@ -735,18 +464,16 @@
         font-weight: 700;
         color: var(--accent);
         text-transform: uppercase;
-        letter-spacing: 0.05em;
         margin-bottom: 0.5rem;
         display: block;
     }
 
-    /* REFINED ACADEMIC TITLES */
     .timeline-degree {
-        font-size: 1.35rem;   
+        font-size: 1.2rem;
         font-weight: 700;
-        letter-spacing: -0.01em;
         color: var(--primary);
         margin-bottom: 0.25rem;
+        line-height: 1.3;
     }
 
     .timeline-school {
@@ -755,275 +482,384 @@
         font-weight: 500;
     }
 
-    /* Credential Badge Card - ELEVATED */
+    /* Credential Card */
     .credential-card {
         background: linear-gradient(135deg, #fff, #fffbf0);
         border: 1px solid rgba(198, 161, 74, 0.2);
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: var(--radius-lg);
         margin-top: 2rem;
         display: flex;
         align-items: center;
         gap: 1.5rem;
         box-shadow: 0 4px 15px rgba(198, 161, 74, 0.08);
-        transition: transform 0.3s;
-        
-        /* Enable positioning and overflow for glow */
-        position: relative;
-        overflow: hidden;
     }
+    .credential-icon { font-size: 2.5rem; color: var(--accent); }
     
-    /* Subtle Glow Effect */
-    .credential-card::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba(198,161,74,0.2), transparent 70%);
-        pointer-events: none;
-    }
-    
-    .credential-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .credential-icon {
-        font-size: 3rem;
-        color: var(--accent);
-        opacity: 0.8;
-    }
-
-    .credential-info h4 {
-        text-align: left;
-        font-size: 1.2rem;
-        color: var(--primary);
-        margin-bottom: 0.25rem;
-    }
-    
-    .credential-info p {
-        margin: 0;
-        font-size: 0.95rem;
-        color: #64748b;
-    }
-
-    /* Specialization Tags - ENHANCED ANIMATION */
-    .specialization-container {
-        margin-top: 3rem;
-    }
-
-    .tag-cloud {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-    }
-
+    /* Tag Cloud */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
     .spec-tag {
         background-color: #f1f5f9;
         color: var(--primary);
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 1rem;
         border-radius: 50px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 500;
-        
-        /* Polished Transition */
-        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-        
+        transition: all 0.2s;
         border: 1px solid transparent;
     }
-
     .spec-tag:hover {
         background-color: var(--primary);
         color: #fff;
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* Right Column: Philosophy & Languages */
+    /* Philosophy & Languages */
     .philosophy-card {
-        background-color: #ffffff;
-        padding: 2.5rem;
+        background: #fff;
+        padding: 2rem;
         border-radius: var(--radius-lg);
         border-top: 4px solid var(--accent);
         box-shadow: var(--shadow-sm);
         margin-bottom: 2rem;
         text-align: center;
-        position: relative;
     }
-    
-    .philosophy-card i {
-        font-size: 2rem;
-        color: rgba(198, 161, 74, 0.2);
-        margin-bottom: 1rem;
-    }
-
-    /* IMPROVED PHILOSOPHY TYPOGRAPHY */
     .philosophy-text {
-        font-family: var(--font-main);
-        font-size: 1.2rem;       /* Increased from 1.15rem */
-        font-weight: 500;        /* Added */
-        letter-spacing: -0.01em; /* Added */
+        font-size: 1.15rem;
         font-style: italic;
         color: var(--text-main);
         line-height: 1.6;
-        margin: 0;
     }
-    
     .philosophy-author {
         display: block;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         font-size: 0.9rem;
         font-weight: 700;
         color: var(--accent);
-        font-style: normal;
     }
 
-    /* Language Cards - ADDED HOVER DEPTH */
-    .lang-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
+    .lang-grid { display: grid; gap: 0.75rem; }
     .lang-card {
         background: #fff;
-        padding: 1.25rem;
-        border-radius: 12px;
+        padding: 1rem;
+        border-radius: 8px;
         border: 1px solid #e2e8f0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: all 0.2s ease;
     }
-    
-    .lang-card:hover {
-        border-color: var(--accent);
-        transform: translateY(-3px); /* Added hover depth */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    }
-
-    .lang-name {
-        font-weight: 600;
-        color: var(--primary);
-    }
-
+    .lang-name { font-weight: 600; color: var(--primary); font-size: 0.95rem; }
     .lang-level {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: var(--color-text-muted);
         background: #f1f5f9;
-        padding: 4px 10px;
+        padding: 4px 8px;
         border-radius: 4px;
     }
-    
     .lang-level.fluent { color: #059669; background: #d1fae5; }
     .lang-level.intermediate { color: #d97706; background: #fef3c7; }
 
+    /* =========================================
+       10. CONTACT SECTION
+       ========================================= */
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-info-panel, .contact-form-panel {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+    }
+    .contact-icon-box {
+        width: 44px;
+        height: 44px;
+        background-color: rgba(198, 161, 74, 0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+        color: var(--accent);
+    }
+    
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+    
+    .form-input, .form-textarea {
+        width: 100%;
+        padding: 0.85rem;
+        font-family: var(--font-main);
+        font-size: 1rem; /* 16px prevents iOS zoom */
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        transition: border-color 0.3s;
+        background-color: #fcfcfc;
+    }
+    .form-input:focus, .form-textarea:focus {
+        border-color: var(--accent);
+        outline: none;
+        background-color: #fff;
+    }
+    .form-textarea { min-height: 120px; resize: vertical; }
+    
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+    .submit-btn:hover { opacity: 0.9; }
+
+    .toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #fff;
+        color: var(--text-main);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-left: 5px solid var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transform: translateY(150%);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 2000;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
 
     /* =========================================
-       10. NAVIGATION
+       11. NAVIGATION
        ========================================= */
     .navbar {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+        top: 0; left: 0; width: 100%;
         height: var(--nav-height);
-        background-color: var(--primary); 
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        background-color: var(--primary);
         z-index: 1000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .navbar.scrolled {
-        background-color: rgba(11, 31, 59, 0.95); 
+        background-color: rgba(11, 31, 59, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
 
     .nav-container {
-        width: 90%;
-        max-width: 1100px;
+        width: 92%;
+        max-width: var(--container-max);
+        height: 100%;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100%;
     }
 
     .nav-logo {
-        font-family: var(--font-main);
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 700;
         text-decoration: none;
         letter-spacing: -0.02em;
-        display: flex;
-        align-items: center;
+        z-index: 1002; /* Above hamburger overlay */
     }
-
     .nav-logo span { color: var(--accent); }
 
-    .nav-menu { display: flex; list-style: none; gap: 2rem; }
-
-    .nav-link {
-        font-family: var(--font-main);
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        position: relative;
-        padding: 5px 0;
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
     }
 
+    .nav-link {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 5px 0;
+        position: relative;
+    }
     .nav-link:hover, .nav-link.active { color: var(--accent); }
-
     .nav-link::after {
         content: '';
         position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
+        width: 0; height: 2px;
+        bottom: 0; left: 0;
         background-color: var(--accent);
         transition: width 0.3s ease;
     }
-
     .nav-link:hover::after { width: 100%; }
 
-    .hamburger { display: none; cursor: pointer; background: none; border: none; padding: 10px; }
+    /* Hamburger */
+    .hamburger { 
+        display: none; 
+        cursor: pointer; 
+        background: none; 
+        border: none; 
+        padding: 0.5rem;
+        z-index: 1002;
+    }
     .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
+        display: block; width: 25px; height: 3px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
         background-color: white;
+        border-radius: 2px;
     }
 
     /* =========================================
-       11. ANIMATION UTILITIES
+       12. ANIMATIONS
        ========================================= */
     .reveal-on-scroll {
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        will-change: opacity, transform;
     }
-
-    .reveal-on-scroll.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+    .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
 
+    /* =========================================
+       13. RESPONSIVE BREAKPOINTS
+       ========================================= */
+    
+    /* LAPTOP & DESKTOP (1024px - 1439px) */
+    @media (min-width: 1024px) {
+        .edu-layout-grid {
+            grid-template-columns: 3fr 2fr;
+            align-items: start;
+        }
+        .contact-grid {
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+    }
+
+    /* LARGE DESKTOP (1440px+) */
+    @media (min-width: 1440px) {
+        :root { --container-max: 1400px; }
+        .container { padding: 6rem 0; }
+        .card { padding: 3rem; }
+        .nav-menu { gap: 2.5rem; }
+    }
+
+    /* TABLET (768px - 1023px) */
+    @media (max-width: 1023px) {
+        .nav-menu { gap: 1.5rem; }
+        .cta-container { flex-direction: row; flex-wrap: wrap; }
+        .btn { flex: 1 1 auto; }
+    }
+
+    /* LARGE MOBILE / SMALL TABLET (481px - 767px) */
+    @media (max-width: 767px) {
+        .container { width: 92%; padding: 4rem 0; }
+        .grid--auto-fit { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+        
+        /* Mobile Nav */
+        .hamburger { display: block; }
+        .nav-menu {
+            position: fixed;
+            left: -100%; top: var(--nav-height);
+            flex-direction: column;
+            background-color: var(--primary);
+            width: 100%;
+            height: calc(100vh - var(--nav-height));
+            text-align: center;
+            transition: 0.3s ease-in-out;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-menu.active { left: 0; }
+        .nav-link { display: block; padding: 15px 0; font-size: 1.1rem; width: 100%; }
+        
+        /* Hamburger Animation */
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Stacked CTAs */
+        .cta-container { flex-direction: column; }
+        .btn { width: 100%; }
+
+        /* Timeline Mobile Adjustments */
+        .edu-timeline { padding-left: 1.5rem; }
+        .timeline-item::before { 
+            /* Adjust dot for new padding (1.5rem = 24px) */
+            left: -1.85rem; 
+            width: 12px; height: 12px; 
+        }
+        
+        /* Credential Card Mobile */
+        .credential-card { flex-direction: column; text-align: center; }
+        .credential-info h4 { text-align: center; }
+    }
+
+    /* SMALL MOBILE (320px - 480px) */
+    @media (max-width: 480px) {
+        :root { --nav-height: 60px; }
+        
+        html { font-size: 15px; } /* Scale down base slightly */
+        
+        body { padding-top: var(--nav-height); }
+        
+        .container { 
+            width: 94%; 
+            padding: 3rem 0; 
+        }
+        
+        h1 { margin-bottom: 1rem; }
+        .subtitle { font-size: 1.1rem; }
+        
+        /* Single column grids */
+        .grid--auto-fit { grid-template-columns: 1fr; }
+        .metrics-grid { grid-template-columns: 1fr; }
+        
+        /* Timeline adjustments for very small screens */
+        .edu-timeline { padding-left: 1.25rem; border-left-width: 1px; }
+        .timeline-item::before { 
+            left: -1.55rem; /* Fine tune for 1.25rem padding */
+            width: 10px; height: 10px;
+            top: 4px;
+        }
+        
+        .timeline-degree { font-size: 1.1rem; }
+        .timeline-school { font-size: 0.9rem; }
+        
+        /* Cards */
+        .card { padding: 1.5rem; }
+        .card__icon { font-size: 2rem; }
+        .entry-card { padding: 1.5rem; }
+        
+        /* Contact */
+        .contact-icon-box { width: 36px; height: 36px; font-size: 1rem; }
+        .contact-info-content h4 { font-size: 1rem; }
+        .toast { left: 10px; right: 10px; bottom: 10px; width: auto; }
+    }
+
+    /* Accessibility: Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
         * {
             animation-duration: 0.01ms !important;
@@ -1031,89 +867,7 @@
             transition-duration: 0.01ms !important;
             scroll-behavior: auto !important;
         }
-        .reveal-on-scroll {
-            opacity: 1;
-            transform: none;
-        }
-    }
-
-    /* =========================================
-       12. RESPONSIVE DESIGN
-       ========================================= */
-    @media (max-width: 1024px) {
-        .contact-grid { gap: 2rem; }
-        .contact-info-panel, .contact-form-panel { padding: 2rem; }
-    }
-
-    @media (max-width: 900px) {
-        .contact-grid { grid-template-columns: 1fr; }
-        .contact-form-panel { order: 1; }
-        .contact-info-panel { order: 2; }
-    }
-
-    @media (max-width: 768px) {
-        .container { padding: 60px 0; }
-        
-        h1 { font-size: 2rem; }
-        h2 { font-size: 1.5rem; }
-        
-        .nav-logo { font-size: 1.25rem; }
-        .hamburger { display: block; z-index: 1001; }
-        
-        .hamburger.active .bar:nth-child(2) { opacity: 0; }
-        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        
-        .nav-menu {
-            position: fixed;
-            left: -100%;
-            top: var(--nav-height);
-            flex-direction: column;
-            background-color: var(--primary);
-            width: 100%;
-            height: calc(100vh - var(--nav-height)); 
-            text-align: center;
-            transition: 0.3s ease-in-out;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 2rem;
-        }
-        
-        .nav-menu.active { left: 0; }
-        
-        .nav-link {
-            display: block;
-            padding: 20px 0;
-            font-size: 1.1rem;
-            width: 100%;
-        }
-
-        .hero { background-attachment: scroll; } 
-        
-        .cta-container { flex-direction: column; width: 100%; }
-        .btn { width: 100%; }
-        
-        .entry-card { padding: 2rem; }
-        
-        .contact-grid { gap: 1.5rem; }
-        .contact-info-panel, .contact-form-panel { padding: 1.5rem; }
-        
-        .toast { left: 20px; right: 20px; bottom: 20px; width: auto; }
-        
-        /* Edu Mobile adjustments */
-        .edu-timeline { padding-left: 1.5rem; }
-        .timeline-item::before { left: -1.85rem; }
-    }
-    
-    @media (max-width: 480px) {
-        h1 { font-size: 1.75rem; }
-        .subtitle { font-size: 1.25rem; }
-        .metric-value { font-size: 2.25rem; }
-        
-        .contact-intro-text { font-size: 1rem; }
-        .contact-icon-box { width: 40px; height: 40px; }
-        
-        .credential-card { flex-direction: column; text-align: center; }
-        .credential-info h4 { text-align: center; }
+        .reveal-on-scroll { opacity: 1; transform: none; }
     }
 </style>
 </head>
@@ -1125,14 +879,15 @@
     <div class="nav-container">
         <a href="#home" class="nav-logo">Munir<span>Zakaria</span></a>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#profile" class="nav-link">Profile</a></li>
-            <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-            <li class="nav-item"><a href="#skills" class="nav-link">Expertise</a></li>
-            <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#profile" class="nav-link">Profile</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#skills" class="nav-link">Expertise</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <!-- Accessible Hamburger Button -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -1151,10 +906,10 @@
                 <i class="fa-solid fa-download"></i> Download CV
             </a>
             <a href="#contact" class="btn btn-secondary">
-                <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
+                <i class="fa-regular fa-calendar-check"></i> Schedule Consultation
             </a>
             <a href="#" target="_blank" class="btn btn-accent">
-                <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+                <i class="fa-brands fa-linkedin-in"></i> Connect
             </a>
         </div>
     </div>
@@ -1168,7 +923,6 @@
             I am a Human Resources practitioner with extensive experience in UN system operations, humanitarian missions, and international development environments. My leadership is defined by a commitment to strategic workforce alignment and operational resilience.
         </p>
 
-        <!-- VALUE PROPOSITION GRID -->
         <div class="grid grid--auto-fit">
             <!-- Pillar 1 -->
             <div class="card reveal-on-scroll">
@@ -1207,27 +961,27 @@
         <div class="metrics-grid">
             <div class="metric-card reveal-on-scroll">
                 <div class="metric-value">20+</div>
-                <div class="metric-desc">Years in International HR Leadership</div>
+                <div class="metric-desc">Years in International HR</div>
             </div>
             <div class="metric-card reveal-on-scroll delay-100">
                 <div class="metric-value">1000+</div>
-                <div class="metric-desc">Staff supported across multi-country operations</div>
+                <div class="metric-desc">Staff supported across missions</div>
             </div>
             <div class="metric-card reveal-on-scroll delay-200">
                 <div class="metric-value">£5M+</div>
-                <div class="metric-desc">Budget Oversight with cost control success</div>
+                <div class="metric-desc">Budget Oversight</div>
             </div>
             <div class="metric-card reveal-on-scroll">
                 <div class="metric-value">40%</div>
-                <div class="metric-desc">Recruitment Efficiency Improvement</div>
+                <div class="metric-desc">Recruitment Efficiency Gain</div>
             </div>
-            <div class="metric-card text-heavy reveal-on-scroll delay-100">
-                <div class="metric-value">Crisis HR Leadership</div>
-                <div class="metric-desc">during COVID-19 and high-risk field operations</div>
+            <div class="metric-card reveal-on-scroll delay-100">
+                <div class="metric-value">Crisis HR</div>
+                <div class="metric-desc">COVID-19 & Field Ops</div>
             </div>
-            <div class="metric-card text-heavy reveal-on-scroll delay-200">
+            <div class="metric-card reveal-on-scroll delay-200">
                 <div class="metric-value">Multi-Country</div>
-                <div class="metric-desc">Experience: Sudan, CAR, Regional Missions</div>
+                <div class="metric-desc">Sudan, CAR, Regional</div>
             </div>
         </div>
 
@@ -1242,49 +996,39 @@
 
         <h3 class="reveal-on-scroll">Strategic HR Leadership</h3>
         <ul class="skill-list reveal-on-scroll">
-            <li><i class="fa-solid fa-chess-board"></i> <span class="skill-text">HR Strategy Development & Implementation</span></li>
-            <li><i class="fa-solid fa-people-arrows"></i> <span class="skill-text">Organizational Change Management</span></li>
-            <li><i class="fa-solid fa-scale-balanced"></i> <span class="skill-text">Policy Development & Regulatory Compliance</span></li>
-            <li><i class="fa-solid fa-file-invoice-dollar"></i> <span class="skill-text">Budget Planning & Cost Optimization</span></li>
-            <li><i class="fa-solid fa-language"></i> <span class="skill-text">Cross-Cultural Team Leadership</span></li>
+            <li><i class="fa-solid fa-chess-board"></i> <span class="skill-text">HR Strategy Development</span></li>
+            <li><i class="fa-solid fa-people-arrows"></i> <span class="skill-text">Change Management</span></li>
+            <li><i class="fa-solid fa-scale-balanced"></i> <span class="skill-text">Policy & Compliance</span></li>
+            <li><i class="fa-solid fa-file-invoice-dollar"></i> <span class="skill-text">Budget Planning</span></li>
+            <li><i class="fa-solid fa-language"></i> <span class="skill-text">Cross-Cultural Leadership</span></li>
         </ul>
 
-        <h3 class="reveal-on-scroll">Humanitarian & Crisis HR Management</h3>
+        <h3 class="reveal-on-scroll">Humanitarian & Crisis HR</h3>
         <ul class="skill-list reveal-on-scroll">
-            <li><i class="fa-solid fa-bell"></i> <span class="skill-text">Emergency Response Staffing</span></li>
-            <li><i class="fa-solid fa-shield-halved"></i> <span class="skill-text">Security Clearance & Evacuation Coordination</span></li>
-            <li><i class="fa-solid fa-hand-holding-heart"></i> <span class="skill-text">Staff Welfare & Crisis Management</span></li>
-            <li><i class="fa-solid fa-earth-africa"></i> <span class="skill-text">Field Operations HR Advisory</span></li>
+            <li><i class="fa-solid fa-bell"></i> <span class="skill-text">Emergency Staffing</span></li>
+            <li><i class="fa-solid fa-shield-halved"></i> <span class="skill-text">Security & Evacuation</span></li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> <span class="skill-text">Staff Welfare</span></li>
+            <li><i class="fa-solid fa-earth-africa"></i> <span class="skill-text">Field Advisory</span></li>
             <li><i class="fa-solid fa-users-viewfinder"></i> <span class="skill-text">Inter-Agency Coordination</span></li>
         </ul>
 
-        <h3 class="reveal-on-scroll">International Recruitment & Talent Management</h3>
+        <h3 class="reveal-on-scroll">International Recruitment</h3>
         <ul class="skill-list reveal-on-scroll">
             <li><i class="fa-solid fa-user-check"></i> <span class="skill-text">Competency-Based Selection</span></li>
-            <li><i class="fa-solid fa-plane-departure"></i> <span class="skill-text">Cross-Border Recruitment Operations</span></li>
-            <li><i class="fa-solid fa-network-wired"></i> <span class="skill-text">UN Recruitment Platforms (Inspira, MSRP)</span></li>
-            <li><i class="fa-solid fa-user-group"></i> <span class="skill-text">Talent Pipeline Development</span></li>
-            <li><i class="fa-solid fa-chart-pie"></i> <span class="skill-text">Performance Management Systems</span></li>
+            <li><i class="fa-solid fa-plane-departure"></i> <span class="skill-text">Cross-Border Operations</span></li>
+            <li><i class="fa-solid fa-network-wired"></i> <span class="skill-text">UN Platforms (Inspira)</span></li>
+            <li><i class="fa-solid fa-user-group"></i> <span class="skill-text">Talent Pipelines</span></li>
+            <li><i class="fa-solid fa-chart-pie"></i> <span class="skill-text">Performance Management</span></li>
         </ul>
 
-        <h3 class="reveal-on-scroll">HR Systems & Process Optimization</h3>
-        <ul class="skill-list reveal-on-scroll">
-            <li><i class="fa-solid fa-laptop-file"></i> <span class="skill-text">UMOJA & MSRP Implementation</span></li>
-            <li><i class="fa-solid fa-chart-simple"></i> <span class="skill-text">HR Data Analytics & Reporting</span></li>
-            <li><i class="fa-solid fa-microchip"></i> <span class="skill-text">Process Automation & Efficiency Improvement</span></li>
-            <li><i class="fa-solid fa-file-shield"></i> <span class="skill-text">HRMS Compliance Monitoring</span></li>
-        </ul>
-
-        <h2 class="reveal-on-scroll">System & Technical Expertise</h2>
+        <h2 class="reveal-on-scroll">Technical Expertise</h2>
         <ul class="skill-list reveal-on-scroll" style="justify-content: center;">
             <li><span class="skill-text">UMOJA</span></li>
             <li><span class="skill-text">MSRP</span></li>
             <li><span class="skill-text">Inspira</span></li>
             <li><span class="skill-text">IMIS</span></li>
             <li><span class="skill-text">Advanced Excel</span></li>
-            <li><span class="skill-text">Financial Systems</span></li>
-            <li><span class="skill-text">Data Analytics</span></li>
-            <li><span class="skill-text">Recruitment Tracking</span></li>
+            <li><span class="skill-text">HR Analytics</span></li>
         </ul>
 
         <div class="section-separator"></div>
@@ -1300,11 +1044,9 @@
             <h3>HR Associate | UNHCR | 2020 – Present</h3>
             <ul class="bullet-list">
                 <li>National Recruitment Focal Point for Sudan Operations</li>
-                <li>Alternative Assignment Committee Member (Strategic Decision-Making Role)</li>
+                <li>Alternative Assignment Committee Member</li>
                 <li>Medical Evacuation Co-Coordinator</li>
-                <li>Streamlined recruitment tracking systems across multiple field offices</li>
-                <li>Ensured MSRP system compliance and reporting accuracy</li>
-                <li>Provided HR leadership under challenging security conditions in Darfur</li>
+                <li>Streamlined recruitment tracking systems across field offices</li>
             </ul>
         </div>
 
@@ -1313,39 +1055,27 @@
             <ul class="bullet-list">
                 <li>Managed full recruitment lifecycle for multiple staff categories</li>
                 <li>Coordinated international staff onboarding & accreditation</li>
-                <li>Administered medical insurance systems for local personnel</li>
-                <li>Provided expert interpretation of UN staff rules & regulations</li>
+                <li>Administered medical insurance systems</li>
                 <li>Improved medical claims processing efficiency</li>
             </ul>
         </div>
 
         <div class="entry-card reveal-on-scroll">
-            <h3>Human Resources Associate | MINUSCA – UN Mission | 2014</h3>
+            <h3>HR Associate | MINUSCA – UN Mission | 2014</h3>
             <ul class="bullet-list">
-                <li>Processed high-volume recruitment for mission-critical roles</li>
-                <li>Coordinated complex visa & international travel arrangements</li>
+                <li>Processed high-volume recruitment for mission roles</li>
+                <li>Coordinated complex visa & travel arrangements</li>
                 <li>Managed candidate evaluation & roster systems</li>
-                <li>Supported rapid deployment requirements</li>
             </ul>
         </div>
 
         <div class="entry-card reveal-on-scroll">
-            <h3>Human Resources Assistant | UNAMID – AU/UN Hybrid Mission | 2007 – 2015</h3>
+            <h3>HR Assistant | UNAMID – AU/UN Mission | 2007 – 2015</h3>
             <ul class="bullet-list">
                 <li>Performance management & staff development coordination</li>
                 <li>Training program design & delivery</li>
                 <li>Financial monitoring & HR cost control</li>
-                <li>Expert policy advisory across AU & UN frameworks</li>
-            </ul>
-        </div>
-
-        <div class="entry-card reveal-on-scroll">
-            <h3>HR Officer | Relief International | 2006 – 2007</h3>
-            <ul class="bullet-list">
-                <li>Developed comprehensive HR strategy aligned with global objectives</li>
-                <li>Implemented performance management systems</li>
-                <li>Led change management initiatives</li>
-                <li>Established equal opportunity & diversity policies</li>
+                <li>Policy advisory across AU & UN frameworks</li>
             </ul>
         </div>
 
@@ -1353,87 +1083,73 @@
     </div>
 </section>
 
-<!-- REDESIGNED EDUCATION SECTION -->
+<!-- EDUCATION SECTION -->
 <section id="education" class="content-section">
     <div class="container">
         <div class="edu-section-header reveal-on-scroll">
-            <h2>Education & Professional Development</h2>
-            <p class="edu-subtext">A continuous journey of academic excellence and professional certification in Human Resources.</p>
+            <h2>Education & Credentials</h2>
+            <p style="text-align: center; color: var(--color-text-muted); margin-top: 0.5rem;">A journey of academic excellence and professional certification.</p>
         </div>
 
         <div class="edu-layout-grid">
-            <!-- LEFT COLUMN: Academic Journey & Credentials -->
+            <!-- LEFT: Timeline -->
             <div class="edu-main reveal-on-scroll delay-100">
                 <h3>Academic Background</h3>
-                
                 <div class="edu-timeline">
                     <div class="timeline-item">
                         <span class="timeline-year">Graduate</span>
                         <h4 class="timeline-degree">MBA – Business Management</h4>
-                        <p class="timeline-school">University of Khartoum / Various</p>
+                        <p class="timeline-school">University of Khartoum</p>
                     </div>
-
                     <div class="timeline-item">
                         <span class="timeline-year">Postgraduate</span>
                         <h4 class="timeline-degree">HR Management & Development</h4>
-                        <p class="timeline-school">Specialized Advanced Study</p>
+                        <p class="timeline-school">Advanced Study</p>
                     </div>
-
                     <div class="timeline-item">
                         <span class="timeline-year">Undergraduate</span>
-                        <h4 class="timeline-degree">Diploma – Human Resources Management</h4>
+                        <h4 class="timeline-degree">Diploma – HR Management</h4>
                         <p class="timeline-school">Professional Certification</p>
                     </div>
-
                     <div class="timeline-item">
                         <span class="timeline-year">Bachelor</span>
-                        <h4 class="timeline-degree">BA – English Language & Literature</h4>
+                        <h4 class="timeline-degree">BA – English Language</h4>
                         <p class="timeline-school">University of Khartoum</p>
                     </div>
                 </div>
 
-                <!-- Credential Badge -->
                 <div class="credential-card">
-                    <div class="credential-icon">
-                        <i class="fa-solid fa-certificate"></i>
-                    </div>
+                    <div class="credential-icon"><i class="fa-solid fa-certificate"></i></div>
                     <div class="credential-info">
                         <h4>CIPD Associate Membership</h4>
-                        <p>Chartered Institute of Personnel and Development</p>
+                        <p style="margin:0; font-size: 0.9rem; color: #64748b;">Chartered Institute of Personnel and Development</p>
                     </div>
                 </div>
 
-                <!-- Specializations -->
                 <div class="specialization-container">
-                    <h3>Areas of Specialization</h3>
+                    <h3>Specializations</h3>
                     <div class="tag-cloud">
                         <span class="spec-tag">Humanitarian HR</span>
                         <span class="spec-tag">Emergency Staffing</span>
-                        <span class="spec-tag">Rapid Deployment</span>
-                        <span class="spec-tag">Org Transformation</span>
                         <span class="spec-tag">Talent Acquisition</span>
+                        <span class="spec-tag">Org Transformation</span>
                         <span class="spec-tag">Performance Mgmt</span>
-                        <span class="spec-tag">HR Systems Optimization</span>
-                        <span class="spec-tag">Policy Development</span>
-                        <span class="spec-tag">Crisis Workforce Strategy</span>
+                        <span class="spec-tag">Crisis Strategy</span>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Philosophy & Languages -->
+            <!-- RIGHT: Philosophy -->
             <div class="edu-sidebar reveal-on-scroll delay-200">
-                
-                <!-- Philosophy Card -->
                 <div class="philosophy-card">
-                    <i class="fa-solid fa-quote-left"></i>
+                    <i class="fa-solid fa-quote-left" style="color: rgba(198, 161, 74, 0.2); font-size: 1.5rem; margin-bottom: 1rem;"></i>
                     <p class="philosophy-text">
-                        I believe that effective humanitarian operations depend on resilient, well-structured workforce systems. Strategic HR leadership is not administrative — it is mission-critical infrastructure that enables organizations to deliver impact in the most challenging environments.
+                        Effective humanitarian operations depend on resilient, well-structured workforce systems. Strategic HR leadership is mission-critical infrastructure.
                     </p>
                     <span class="philosophy-author">— Munir Zakaria</span>
                 </div>
 
-                <!-- Languages Grid -->
-                <h3>Multilingual Advantage</h3>
+                <h3>Languages</h3>
                 <div class="lang-grid">
                     <div class="lang-card">
                         <span class="lang-name">English</span>
@@ -1441,14 +1157,13 @@
                     </div>
                     <div class="lang-card">
                         <span class="lang-name">Arabic</span>
-                        <span class="lang-level fluent">Native / Fluent</span>
+                        <span class="lang-level fluent">Native</span>
                     </div>
                     <div class="lang-card">
                         <span class="lang-name">French</span>
                         <span class="lang-level intermediate">Intermediate</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -1458,96 +1173,72 @@
     </div>
 </section>
 
-<!-- CONTACT SECTION (From previous step) -->
-<section id="contact" class="contact-wrapper">
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-wrapper" style="background-color: var(--bg-alt); padding-bottom: 5rem;">
     <div class="container">
         <div class="contact-header reveal-on-scroll">
             <h2>Let’s Connect</h2>
-            <p class="contact-subtitle">Open to Senior HR Leadership & Strategic Consulting Opportunities</p>
+            <p style="text-align: center; color: var(--color-text-muted);">Open to Senior HR Leadership & Strategic Consulting Opportunities</p>
         </div>
 
         <div class="contact-grid">
-            <!-- LEFT COLUMN: Contact Info -->
+            <!-- LEFT: Info -->
             <div class="contact-info-panel reveal-on-scroll delay-100">
-                <p class="contact-intro-text">
-                    I am currently available for senior roles and consulting engagements. If you are looking for strategic HR leadership to navigate complex workforce challenges, let's start a conversation.
+                <p style="margin-bottom: 2rem; font-size: 1.05rem;">
+                    I am available for senior roles and consulting engagements. If you are looking for strategic HR leadership to navigate complex workforce challenges, let's start a conversation.
                 </p>
 
-                <ul class="contact-details-list">
-                    <li class="contact-item">
-                        <div class="contact-icon-box">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="contact-info-content">
-                            <h4>Location</h4>
-                            <p>Khartoum, Sudan</p>
+                            <h4 style="margin:0; font-size: 1rem; color: var(--primary);">Location</h4>
+                            <p style="margin:0; font-size: 0.95rem; color: #64748b;">Khartoum, Sudan</p>
                         </div>
-                    </li>
-
-                    <li class="contact-item">
-                        <div class="contact-icon-box">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
                         <div class="contact-info-content">
-                            <h4>Email</h4>
-                            <a href="mailto:munirmoh@gmail.com">munirmoh@gmail.com</a>
+                            <h4 style="margin:0; font-size: 1rem; color: var(--primary);">Email</h4>
+                            <a href="mailto:munirmoh@gmail.com" style="font-size: 0.95rem; color: #64748b; text-decoration: none;">munirmoh@gmail.com</a>
                         </div>
-                    </li>
-
-                    <li class="contact-item">
-                        <div class="contact-icon-box">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
                         <div class="contact-info-content">
-                            <h4>Phone</h4>
-                            <a href="tel:+2499123371234">+249 912 337 [1234]</a>
+                            <h4 style="margin:0; font-size: 1rem; color: var(--primary);">Phone</h4>
+                            <a href="tel:+2499123371234" style="font-size: 0.95rem; color: #64748b; text-decoration: none;">+249 912 337 [1234]</a>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
 
-                <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Request" class="btn btn-accent btn-full" style="margin-bottom: 2rem;">
+                <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Request" class="btn btn-accent btn-full" style="margin-top: 2rem;">
                     <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
                 </a>
-
-                <div class="social-row">
-                    <a href="#" class="social-btn" target="_blank" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:munirmoh@gmail.com" class="social-btn" aria-label="Email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                    <a href="#" class="social-btn" target="_blank" aria-label="ResearchGate">
-                        <i class="fa-brands fa-researchgate"></i>
-                    </a>
-                </div>
             </div>
 
-            <!-- RIGHT COLUMN: Contact Form -->
+            <!-- RIGHT: Form -->
             <div class="contact-form-panel reveal-on-scroll delay-200">
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name" class="form-label">Full Name</label>
                         <input type="text" id="name" class="form-input" placeholder="John Doe" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
                         <input type="email" id="email" class="form-input" placeholder="john@company.com" required>
                     </div>
-
                     <div class="form-group">
                         <label for="organization" class="form-label">Organization</label>
                         <input type="text" id="organization" class="form-input" placeholder="Company Name / NGO">
                     </div>
-
                     <div class="form-group">
                         <label for="message" class="form-label">Message</label>
                         <textarea id="message" class="form-textarea" placeholder="How can I support your HR objectives?" required></textarea>
                     </div>
-
                     <button type="submit" class="submit-btn">
                         <span>Send Message</span>
-                        <i class="fa-solid fa-paper-plane"></i>
+                        <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>
                     </button>
                 </form>
             </div>
@@ -1556,23 +1247,23 @@
 </section>
 
 <!-- Footer -->
-<footer class="footer" style="background: var(--primary); padding: 40px 0; color: white; text-align: center;">
+<footer style="background: var(--primary); padding: 3rem 0; color: white; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
     <div class="container" style="padding: 0;">
         <div style="margin-bottom: 1.5rem;">
-            <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 10px; transition: color 0.3s;">
+            <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s;">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 10px; transition: color 0.3s;">
+            <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s;">
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
-        <p style="color: rgba(255,255,255,0.5); margin: 0; font-size: 0.9rem;">© 2026 Munir Zakaria. All Rights Reserved.</p>
+        <p style="color: rgba(255,255,255,0.4); margin: 0; font-size: 0.85rem;">© 2026 Munir Zakaria. All Rights Reserved.</p>
     </div>
 </footer>
 
-<!-- Toast Notification Element -->
+<!-- Toast Notification -->
 <div id="toast" class="toast">
-    <i class="fa-solid fa-circle-check"></i>
+    <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.25rem;"></i>
     <div>
         <h4 style="margin:0; font-size: 1rem; color: var(--text-main);">Message Sent</h4>
         <p style="margin:0; font-size: 0.85rem; color: #64748b;">I will get back to you shortly.</p>
@@ -1582,29 +1273,46 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         
-        // --- 1. Mobile Menu Logic ---
-        const hamburger = document.querySelector('.hamburger');
+        // --- 1. Mobile Menu Logic (Accessibility Enhanced) ---
+        const hamburger = document.getElementById('hamburgerBtn');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-                hamburger.setAttribute('aria-expanded', !isExpanded);
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
+        function toggleMenu() {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Accessibility: Prevent body scroll when menu is open
+            if (!isExpanded) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
 
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                    navMenu.classList.remove('active');
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
                 });
+            });
+            
+            // Close menu on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
             });
         }
 
-        // --- 2. Optimized Navbar Scroll Effect ---
+        // --- 2. Optimized Scroll Effect ---
         const navbar = document.querySelector('.navbar');
         let ticking = false;
 
@@ -1652,12 +1360,10 @@
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simulate button loading state
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            submitBtn.style.opacity = '0.8';
+            submitBtn.style.opacity = '0.7';
             submitBtn.disabled = true;
 
-            // Simulate API delay
             setTimeout(() => {
                 contactForm.reset();
                 submitBtn.innerHTML = originalBtnText;
