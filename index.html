@@ -505,6 +505,7 @@
         font-weight: 500;
     }
 
+    /* UPDATED: Centered credential card */
     .credential-card {
         background: linear-gradient(135deg, #fff, #fffbf0);
         border: 1px solid rgba(198, 161, 74, 0.2);
@@ -512,13 +513,51 @@
         border-radius: var(--radius-lg);
         margin-top: 2rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1rem;
         box-shadow: 0 4px 15px rgba(198, 161, 74, 0.08);
+        text-align: center;
     }
-    .credential-icon { font-size: 2.5rem; color: var(--accent); }
+
+    .credential-icon { 
+        font-size: 2.5rem; 
+        color: var(--accent);
+    }
+
+    .credential-info {
+        text-align: center;
+    }
+
+    .credential-info h4 {
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    .credential-info p {
+        margin: 0;
+        text-align: center;
+    }
+
+    /* UPDATED: Centered specialization container */
+    .specialization-container {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .specialization-container h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
     
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+    .tag-cloud { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 0.75rem; 
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
     .spec-tag {
         background-color: #f1f5f9;
         color: var(--primary);
@@ -782,6 +821,20 @@
         .contact-grid {
             grid-template-columns: 1.2fr 0.8fr;
         }
+        
+        /* Ensure centering on large screens */
+        .credential-card {
+            align-items: center;
+        }
+        
+        .credential-info h4,
+        .credential-info p {
+            text-align: center;
+        }
+        
+        .specialization-container h3 {
+            text-align: center;
+        }
     }
 
     @media (min-width: 1440px) {
@@ -795,6 +848,16 @@
         .nav-menu { gap: 1.5rem; }
         .cta-container { flex-direction: row; flex-wrap: wrap; }
         .btn { flex: 1 1 auto; }
+        
+        /* Ensure centering on medium screens */
+        .credential-card {
+            align-items: center;
+        }
+        
+        .credential-info h4,
+        .credential-info p {
+            text-align: center;
+        }
     }
 
     @media (max-width: 767px) {
@@ -830,8 +893,13 @@
             width: 12px; height: 12px; 
         }
         
-        .credential-card { flex-direction: column; text-align: center; }
-        .credential-info h4 { text-align: center; }
+        .credential-card { 
+            flex-direction: column; 
+            text-align: center; 
+        }
+        .credential-info h4 { 
+            text-align: center; 
+        }
     }
 
     @media (max-width: 480px) {
@@ -866,6 +934,16 @@
         .contact-icon-box { width: 36px; height: 36px; font-size: 1rem; }
         .contact-info-content h4 { font-size: 1rem; }
         .toast { left: 10px; right: 10px; bottom: 10px; width: auto; }
+        
+        /* Ensure centering on small screens */
+        .credential-card {
+            align-items: center;
+        }
+        
+        .credential-info h4,
+        .credential-info p {
+            text-align: center;
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1125,6 +1203,7 @@
                     </div>
                 </div>
 
+                <!-- UPDATED: Centered CIPD card -->
                 <div class="credential-card">
                     <div class="credential-icon"><i class="fa-solid fa-certificate"></i></div>
                     <div class="credential-info">
@@ -1133,6 +1212,7 @@
                     </div>
                 </div>
 
+                <!-- UPDATED: Centered Specializations -->
                 <div class="specialization-container">
                     <h3>Specializations</h3>
                     <div class="tag-cloud">
