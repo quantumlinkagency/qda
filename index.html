@@ -282,36 +282,54 @@
     .skill-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1rem;
+        gap: 1.5rem;
         list-style: none;
         padding: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     .skill-list li {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 12px 16px;
+        border-radius: 12px;
+        padding: 1.5rem;
         display: flex;
         align-items: center;
-        transition: all 0.2s ease;
-        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        border-left: 4px solid transparent;
     }
 
     .skill-list li:hover {
-        border-color: var(--accent);
-        transform: translateY(-2px);
-        background: #fffbf0;
+        border-color: rgba(198, 161, 74, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-left-color: var(--accent);
     }
 
     .skill-list li i {
+        background-color: rgba(198, 161, 74, 0.1);
         color: var(--accent);
-        margin-right: 12px;
-        font-size: 1rem;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        margin-right: 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .skill-list li:hover i {
+        background-color: var(--accent);
+        color: white;
+        transform: scale(1.1);
     }
     
-    .skill-text { font-weight: 500; color: #334155; }
+    .skill-text { font-weight: 600; color: #334155; }
     
     /* ===== REDESIGNED TECHNICAL EXPERTISE ===== */
     .tech-badge-container {
@@ -372,54 +390,85 @@
     }
 
     /* =========================================
-       6. SECTIONS & HERO – ensure container use
+       6. SECTIONS & HERO – REDESIGNED CENTERED LAYOUT
        ========================================= */
     .hero {
         min-height: calc(100vh - var(--nav-height));
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
         position: relative;
-        padding: 40px 0;
         background-color: #ffffff;
+        /* Modern subtle mesh gradient background */
         background-image: 
-            radial-gradient(circle at 10% 90%, rgba(11, 31, 59, 0.03) 0%, transparent 40%),
-            radial-gradient(circle at 90% 10%, rgba(198, 161, 74, 0.06) 0%, transparent 35%);
+            radial-gradient(circle at 50% 50%, rgba(198, 161, 74, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 0% 0%, rgba(11, 31, 59, 0.04) 0%, transparent 50%);
     }
 
-    .subtitle { 
-        font-size: 1.25rem;
+    .hero .container {
+        /* Redesigned to single column, centered, constrained width */
+        display: block; 
+        text-align: center; 
+        max-width: 800px; 
+        margin: 0 auto; 
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .hero-text-wrapper {
+        text-align: center; 
+        width: 100%;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        text-align: center;
+        line-height: 1.2; /* Tighter for center */
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Highlight accent in H1 */
+    .hero h1 span {
+        color: var(--accent);
+        display: inline-block; /* Allow it to flow naturally */
+    }
+
+    .hero .subtitle { 
+        font-size: 1.35rem;
         font-weight: 500;
         color: var(--primary);
         margin-bottom: 1.5rem;
         text-align: center;
+        /* Redesigned underline for centered text */
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
+        padding-bottom: 0.5rem;
     }
 
-    .subheadline { 
-        font-size: 0.9rem;
+    .hero .subheadline { 
+        font-size: 0.95rem;
         font-weight: 600;
         color: var(--accent);
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         letter-spacing: 0.05em;
         text-transform: uppercase;
-        line-height: 1.5;
-        max-width: 800px;
+        line-height: 1.6;
+        text-align: center;
+        max-width: 700px;
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
     }
 
-    .cta-container {
+    .hero .cta-container {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
-        margin-top: 1.5rem;
-        justify-content: center;
-        width: 100%;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-top: 2.5rem;
+        justify-content: center; /* Center buttons */
+    }
+
+    /* Hero Visual Side (Right Column) - REMOVED FROM HTML, CSS KEPT FOR SAFETY */
+    .hero-visual-wrapper {
+        display: none; /* Explicitly hidden to ensure clean layout */
     }
 
     .content-section {
@@ -489,7 +538,71 @@
     }
 
     /* =========================================
-       8. EXPERIENCE & CARDS - REDESIGNED
+       8. PROFESSIONAL PROFILE (REDESIGNED)
+       ========================================= */
+    .profile-intro-wrapper {
+        background: linear-gradient(135deg, #fff 0%, #fffbf0 100%);
+        border: 1px solid rgba(198, 161, 74, 0.2);
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        border-left: 5px solid var(--accent);
+        margin: 0 auto 3rem auto;
+        max-width: 900px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        text-align: left;
+    }
+
+    .profile-intro-wrapper p {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--primary);
+        line-height: 1.7;
+    }
+
+    /* Specific overrides for Profile Cards */
+    #profile .card {
+        align-items: flex-start; /* Left align content */
+        text-align: left;
+        padding: 2.5rem; /* More padding */
+        height: 100%;
+    }
+
+    #profile .card__icon {
+        /* Contained Icon Style */
+        font-size: 1.8rem;
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 10px rgba(11, 31, 59, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    #profile .card:hover .card__icon {
+        transform: translateY(-3px);
+        background-color: var(--accent);
+        color: white;
+    }
+
+    #profile .card__title {
+        text-align: left;
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+    }
+
+    #profile .card__body {
+        text-align: left;
+        color: #475569;
+        font-size: 1rem;
+    }
+
+    /* =========================================
+       9. EXPERIENCE & CARDS - REDESIGNED
        ========================================= */
     .experience-grid {
         display: grid;
@@ -666,7 +779,7 @@
     }
 
     /* =========================================
-       9. EDUCATION & TIMELINE (REDESIGNED)
+       10. EDUCATION & TIMELINE (REDESIGNED)
        ========================================= */
     .edu-layout-grid {
         display: grid;
@@ -900,7 +1013,7 @@
     .lang-level.intermediate { background-color: #f59e0b; color: #fff; box-shadow: 0 2px 5px rgba(245, 158, 11, 0.2); }
 
     /* =========================================
-       10. CONTACT SECTION (REDESIGNED)
+       11. CONTACT SECTION (REDESIGNED)
        ========================================= */
     .contact-content {
         max-width: 900px;
@@ -974,7 +1087,7 @@
     }
 
     /* =========================================
-       11. NAVIGATION – unchanged
+       12. NAVIGATION – unchanged
        ========================================= */
     .navbar {
         position: fixed;
@@ -1054,7 +1167,7 @@
     }
 
     /* =========================================
-       12. ANIMATIONS – no change
+       13. ANIMATIONS – no change
        ========================================= */
     .reveal-on-scroll {
         opacity: 0;
@@ -1075,7 +1188,7 @@
     }
 
     /* =========================================
-       13. RESPONSIVE BREAKPOINTS – adjusted for consistency
+       14. RESPONSIVE BREAKPOINTS – adjusted for consistency
        ========================================= */
     
     @media (min-width: 1024px) {
@@ -1099,6 +1212,24 @@
         .edu-sidebar {
             position: static; /* Disable sticky on tablet */
             margin-top: 2rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        /* Hero is now centered everywhere, so this override is removed/standardized */
+        
+        /* Profile Card Reset for Tablet/Mobile */
+        #profile .card {
+            align-items: center;
+            text-align: center;
+        }
+        
+        #profile .card__title {
+            text-align: center;
+        }
+        
+        #profile .card__body {
+            text-align: center;
         }
     }
 
@@ -1179,47 +1310,62 @@
        SLIGHTLY REDESIGNED CORE EXPERTISE (only layout/styling, no data change)
        ========================================= */
     #skills .skill-list {
-        background: #ffffff;
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-        border: 1px solid #f0f3f8;
-        transition: box-shadow 0.2s;
-    }
-    #skills .skill-list:hover {
-        box-shadow: 0 12px 28px rgba(11, 31, 59, 0.06);
-    }
-    #skills .skill-list li {
-        border: none;
-        border-bottom: 1px dashed #edf2f7;
-        border-radius: 0;
-        padding: 0.9rem 0.5rem;
+        /* Container styling removed to allow individual cards to float */
         background: transparent;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        transition: none;
+        margin-bottom: 3rem;
+    }
+    
+    #skills .skill-list li {
+        /* Redesigned as individual cards */
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        border-left: 4px solid transparent; /* Prepare for hover accent */
         margin-bottom: 0;
     }
-    #skills .skill-list li:last-child {
-        border-bottom: none;
+
+    #skills .skill-list li:hover {
+        border-color: rgba(198, 161, 74, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-left-color: var(--accent);
     }
+
     #skills .skill-list li i {
+        /* Redesigned icon wrapper */
         background-color: rgba(198, 161, 74, 0.1);
-        width: 32px;
-        height: 32px;
-        display: inline-flex;
+        color: var(--accent);
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 10px;
-        color: var(--accent);
-        font-size: 1rem;
-        margin-right: 16px;
-        transition: all 0.2s;
+        font-size: 1.1rem;
+        margin-right: 1.25rem;
+        transition: all 0.3s ease;
     }
+
     #skills .skill-list li:hover i {
         background-color: var(--accent);
         color: white;
+        transform: scale(1.1);
     }
+
     #skills h3 {
         margin-top: 3rem;
-        margin-bottom: 1.2rem;
+        margin-bottom: 1.5rem;
         font-size: 1.5rem;
         position: relative;
         display: inline-block;
@@ -1260,19 +1406,21 @@
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="container">
-        <h1 class="reveal-on-scroll">Munir Zakaria, MBA | CIPD Assoc</h1>
-        <p class="subtitle reveal-on-scroll delay-100">HR Professional</p>
-        <p class="subheadline reveal-on-scroll delay-200">Strategic HR Leadership | Crisis Workforce Management | International Recruitment | Organizational Transformation</p>
-        <div class="cta-container reveal-on-scroll delay-300">
-            <a href="#cv" class="btn btn-primary">
-                <i class="fa-solid fa-download"></i> Download CV
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-                <i class="fa-regular fa-calendar-check"></i> Schedule Consultation
-            </a>
-            <a href="#" target="_blank" class="btn btn-accent">
-                <i class="fa-brands fa-linkedin-in"></i> Connect
-            </a>
+        <!-- Centered Content Wrapper -->
+        <div class="hero-text-wrapper reveal-on-scroll">
+            <h1>Munir Zakaria, <span style="display:block; color: var(--accent);">MBA | CIPD Assoc</span></h1>
+            <p class="subtitle delay-100">HR Professional</p>
+            <p class="subheadline delay-200">Strategic HR Leadership | Crisis Workforce Management | International Recruitment | Organizational Transformation</p>
+            <div class="cta-container delay-300">
+                <!-- LinkedIn Button Highlighted (Accent/Gold Background) -->
+                <a href="#" target="_blank" class="btn btn-accent">
+                    <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+                </a>
+                <!-- Schedule Button Secondary (Blue Outline) -->
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fa-regular fa-calendar-check"></i> Schedule Consultation
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -1281,9 +1429,13 @@
 <section id="profile" class="content-section">
     <div class="container">
         <h2 class="reveal-on-scroll">Professional Profile</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;" class="reveal-on-scroll delay-100">
-            I am a Human Resources practitioner with extensive experience in UN system operations, humanitarian missions, and international development environments. My leadership is defined by a commitment to strategic workforce alignment and operational resilience.
-        </p>
+        
+        <!-- Redesigned Intro Wrapper -->
+        <div class="profile-intro-wrapper reveal-on-scroll delay-100">
+            <p>
+                I am a Human Resources practitioner with extensive experience in UN system operations, humanitarian missions, and international development environments. My leadership is defined by a commitment to strategic workforce alignment and operational resilience.
+            </p>
+        </div>
 
         <div class="grid grid--auto-fit">
             <!-- Pillar 1 -->
