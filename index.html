@@ -482,6 +482,11 @@
     .btn-full {
         width: 100%;
     }
+    
+    .btn-lg {
+        padding: 16px 40px;
+        font-size: 1.1rem;
+    }
 
     /* =========================================
        8. EXPERIENCE & CARDS - REDESIGNED
@@ -697,8 +702,6 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     }
 
-    /* Removed the dot pseudo-elements as they are no longer needed for card style */
-
     .timeline-year {
         font-size: 0.75rem;
         font-weight: 700;
@@ -897,94 +900,78 @@
     .lang-level.intermediate { background-color: #f59e0b; color: #fff; box-shadow: 0 2px 5px rgba(245, 158, 11, 0.2); }
 
     /* =========================================
-       10. CONTACT SECTION
+       10. CONTACT SECTION (REDESIGNED)
        ========================================= */
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-info-panel, .contact-form-panel {
-        background: #ffffff;
-        padding: 2rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-sm);
+    .contact-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
     }
 
-    .contact-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 1.5rem;
-        text-decoration: none;
-        color: inherit;
+    .contact-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
     }
-    .contact-icon-box {
-        width: 44px;
-        height: 44px;
+
+    .contact-card-item {
+        background: #ffffff;
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid #f1f5f9;
+        transition: var(--transition-smooth);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-card-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(198, 161, 74, 0.3);
+    }
+
+    .contact-icon-large {
+        width: 64px;
+        height: 64px;
         background-color: rgba(198, 161, 74, 0.1);
-        border-radius: 10px;
+        color: var(--accent);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 1rem;
-        flex-shrink: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .contact-card-item:hover .contact-icon-large {
+        background-color: var(--accent);
+        color: white;
+    }
+
+    .contact-card-item h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    .contact-card-item p,
+    .contact-card-item a {
+        font-size: 0.95rem;
+        color: #64748b;
+        text-decoration: none;
+        margin: 0;
+        transition: color 0.2s;
+    }
+    
+    .contact-card-item a:hover {
         color: var(--accent);
     }
-    
-    .form-group { margin-bottom: 1.25rem; }
-    .form-label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
-    
-    .form-input, .form-textarea {
-        width: 100%;
-        padding: 0.85rem;
-        font-family: var(--font-main);
-        font-size: 1rem;
-        border: 2px solid #e2e8f0;
-        border-radius: 8px;
-        transition: border-color 0.3s;
-        background-color: #fcfcfc;
-    }
-    .form-input:focus, .form-textarea:focus {
-        border-color: var(--accent);
-        outline: none;
-        background-color: #fff;
-    }
-    .form-textarea { min-height: 120px; resize: vertical; }
-    
-    .submit-btn {
-        width: 100%;
-        padding: 1rem;
-        background-color: var(--primary);
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: opacity 0.3s;
-    }
-    .submit-btn:hover { opacity: 0.9; }
-
-    .toast {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #fff;
-        color: var(--text-main);
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        border-left: 5px solid var(--accent);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        transform: translateY(150%);
-        opacity: 0;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        z-index: 2000;
-    }
-    .toast.show { transform: translateY(0); opacity: 1; }
 
     /* =========================================
        11. NAVIGATION – unchanged
@@ -1095,9 +1082,6 @@
         .edu-layout-grid {
             grid-template-columns: 3fr 2fr;
         }
-        .contact-grid {
-            grid-template-columns: 1.2fr 0.8fr;
-        }
     }
 
     @media (min-width: 1440px) {
@@ -1176,9 +1160,9 @@
         .card { padding: 1.5rem; }
         .card__icon { font-size: 2rem; }
         
-        .contact-icon-box { width: 36px; height: 36px; font-size: 1rem; }
-        .contact-info-content h4 { font-size: 1rem; }
-        .toast { left: 10px; right: 10px; bottom: 10px; width: auto; }
+        .contact-cards-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1624,71 +1608,47 @@
 <!-- CONTACT SECTION -->
 <section id="contact" class="contact-wrapper" style="background-color: var(--bg-alt); padding-bottom: 5rem;">
     <div class="container">
-        <div class="contact-header reveal-on-scroll">
+        <div class="contact-content reveal-on-scroll">
             <h2>Let’s Connect</h2>
             <p style="text-align: center; color: var(--color-text-muted);">Open to Senior HR Leadership & Strategic Consulting Opportunities</p>
-        </div>
 
-        <div class="contact-grid">
-            <!-- LEFT: Info -->
-            <div class="contact-info-panel reveal-on-scroll delay-100">
-                <p style="margin-bottom: 2rem; font-size: 1.05rem;">
-                    I am available for senior roles and consulting engagements. If you are looking for strategic HR leadership to navigate complex workforce challenges, let's start a conversation.
-                </p>
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto; color: #334155;">
+                I am available for senior roles and consulting engagements. If you are looking for strategic HR leadership to navigate complex workforce challenges, let's start a conversation.
+            </p>
 
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                        <div class="contact-info-content">
-                            <h4 style="margin:0; font-size: 1rem; color: var(--primary);">Location</h4>
-                            <p style="margin:0; font-size: 0.95rem; color: #64748b;">Khartoum, Sudan</p>
-                        </div>
+            <div class="contact-cards-grid">
+                <!-- Location Card -->
+                <div class="contact-card-item">
+                    <div class="contact-icon-large">
+                        <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
-                        <div class="contact-info-content">
-                            <h4 style="margin:0; font-size: 1rem; color: var(--primary);">Email</h4>
-                            <a href="mailto:munirmoh@gmail.com" style="font-size: 0.95rem; color: #64748b; text-decoration: none;">munirmoh@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
-                        <div class="contact-info-content">
-                            <h4 style="margin:0; font-size: 1rem; color: var(--primary);">Phone</h4>
-                            <a href="tel:+2499123371234" style="font-size: 0.95rem; color: #64748b; text-decoration: none;">+249 912 337 [1234]</a>
-                        </div>
-                    </div>
+                    <h4>Location</h4>
+                    <p>Khartoum, Sudan</p>
                 </div>
 
-                <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Request" class="btn btn-accent btn-full" style="margin-top: 2rem;">
-                    <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
-                </a>
+                <!-- Email Card -->
+                <div class="contact-card-item">
+                    <div class="contact-icon-large">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h4>Email</h4>
+                    <a href="mailto:munirmoh@gmail.com">munirmoh@gmail.com</a>
+                </div>
+
+                <!-- Phone Card -->
+                <div class="contact-card-item">
+                    <div class="contact-icon-large">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h4>Phone</h4>
+                    <a href="tel:+2499123371234">+249 912 337 [1234]</a>
+                </div>
             </div>
 
-            <!-- RIGHT: Form -->
-            <div class="contact-form-panel reveal-on-scroll delay-200">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" class="form-input" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="john@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="organization" class="form-label">Organization</label>
-                        <input type="text" id="organization" class="form-input" placeholder="Company Name / NGO">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" class="form-textarea" placeholder="How can I support your HR objectives?" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span>Send Message</span>
-                        <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>
-                    </button>
-                </form>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="mailto:munirmoh@gmail.com?subject=Consultation%20Request" class="btn btn-accent btn-lg">
+                    <i class="fa-regular fa-calendar-check"></i> Schedule a Consultation
+                </a>
             </div>
         </div>
     </div>
@@ -1709,15 +1669,8 @@
     </div>
 </footer>
 
-<!-- Toast Notification -->
-<div id="toast" class="toast">
-    <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.25rem;"></i>
-    <div>
-        <h4 style="margin:0; font-size: 1rem; color: var(--text-main);">Message Sent</h4>
-        <p style="margin:0; font-size: 0.85rem; color: #64748b;">I will get back to you shortly.</p>
-    </div>
-</div>
-
+<!-- Toast Notification (Removed functionality but kept element in case needed later or JS cleaner, can delete) -->
+<!-- Keeping JS minimal as requested -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         
@@ -1792,33 +1745,6 @@
 
         const scrollElements = document.querySelectorAll('.reveal-on-scroll');
         scrollElements.forEach(el => observer.observe(el));
-
-        const contactForm = document.getElementById('contactForm');
-        const toast = document.getElementById('toast');
-        const submitBtn = document.querySelector('.submit-btn');
-        const originalBtnText = submitBtn.innerHTML;
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            submitBtn.style.opacity = '0.7';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.style.opacity = '1';
-                submitBtn.disabled = false;
-
-                toast.classList.add('show');
-
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 4000);
-
-            }, 1500);
-        });
     });
 </script>
 
