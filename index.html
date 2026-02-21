@@ -1087,22 +1087,26 @@
     }
 
     /* =========================================
-       12. NAVIGATION – unchanged
+       12. NAVIGATION – REDESIGNED HEADER
        ========================================= */
     .navbar {
         position: fixed;
         top: 0; left: 0; width: 100%;
         height: var(--nav-height);
-        background-color: var(--primary);
+        /* Glassmorphism / Frosted Glass Effect */
+        background-color: rgba(11, 31, 59, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         z-index: 1000;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, border-bottom-color 0.3s ease;
     }
 
     .navbar.scrolled {
-        background-color: rgba(11, 31, 59, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        /* More opaque when scrolled for readability over white content */
+        background-color: rgba(11, 31, 59, 0.98);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-container {
@@ -1117,34 +1121,47 @@
 
     .nav-logo {
         color: white;
-        font-size: 1.4rem;
+        font-size: 1.5rem; /* Slightly larger */
         font-weight: 700;
         text-decoration: none;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.5px; /* Tighter, premium feel */
         z-index: 1002;
+        transition: opacity 0.3s ease;
     }
-    .nav-logo span { color: var(--accent); }
+    .nav-logo:hover { opacity: 0.9; }
+    .nav-logo span { 
+        color: var(--accent); 
+        font-weight: 800; /* Heavier weight for emphasis */
+    }
 
     .nav-menu {
         display: flex;
         list-style: none;
-        gap: 2rem;
+        gap: 1.5rem; /* Slightly tighter gap for cleaner look */
     }
 
     .nav-link {
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255, 255, 255, 0.9);
         text-decoration: none;
         font-size: 0.95rem;
         font-weight: 500;
-        padding: 5px 0;
+        padding: 8px 16px; /* Pill shape padding */
+        border-radius: 30px;
         position: relative;
+        transition: all 0.3s ease;
     }
-    .nav-link:hover, .nav-link.active { color: var(--accent); }
+    
+    .nav-link:hover, .nav-link.active { 
+        color: #fff; 
+        background-color: rgba(255, 255, 255, 0.1); /* Subtle pill bg on hover */
+    }
+
     .nav-link::after {
         content: '';
         position: absolute;
         width: 0; height: 2px;
-        bottom: 0; left: 0;
+        bottom: 4px; /* Moved underline down slightly */
+        left: 0;
         background-color: var(--accent);
         transition: width 0.3s ease;
     }
@@ -1159,11 +1176,11 @@
         z-index: 1002;
     }
     .bar {
-        display: block; width: 25px; height: 3px;
-        margin: 5px auto;
+        display: block; width: 26px; height: 3px; /* Slightly thicker bars */
+        margin: 6px auto; /* More spacing */
         transition: all 0.3s ease-in-out;
         background-color: white;
-        border-radius: 2px;
+        border-radius: 3px; /* Rounded ends */
     }
 
     /* =========================================
@@ -1201,11 +1218,11 @@
         :root { --container-max: 1400px; }
         .container { padding: 6rem 0; }
         .card { padding: 3rem; }
-        .nav-menu { gap: 2.5rem; }
+        .nav-menu { gap: 2rem; }
     }
 
     @media (max-width: 1023px) {
-        .nav-menu { gap: 1.5rem; }
+        .nav-menu { gap: 1rem; }
         .cta-container { flex-direction: row; flex-wrap: wrap; }
         .btn { flex: 1 1 auto; }
         
