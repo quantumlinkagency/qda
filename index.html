@@ -1074,7 +1074,145 @@
     }
 
     /* =========================================
-       13. ANIMATIONS – no change
+       13. FOOTER – REDESIGNED
+       ========================================= */
+    footer {
+        background-color: var(--primary);
+        color: rgba(255, 255, 255, 0.85);
+        padding: 4rem 0 0 0;
+        font-size: 0.95rem;
+        border-top: 5px solid var(--accent); /* Strong accent separator */
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+        font-family: var(--font-main);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: left;
+        color: #fff;
+    }
+
+    .footer-brand h3 span {
+        color: var(--accent);
+    }
+
+    .footer-brand p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    .footer-heading {
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 2px;
+        background-color: var(--accent);
+    }
+
+    .footer-links {
+        list-style: none;
+        text-align: left;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.85rem;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-links a i {
+        width: 20px;
+        color: var(--accent);
+        font-size: 0.9rem;
+        margin-right: 10px;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent);
+        padding-left: 5px; /* Subtle slide effect */
+    }
+    
+    .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-info-item i {
+        color: var(--accent);
+        margin-top: 4px;
+        margin-right: 12px;
+        width: 18px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.85rem;
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .footer-socials a {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-socials a:hover {
+        color: #fff;
+        background-color: var(--accent);
+        transform: translateY(-3px);
+    }
+
+    /* =========================================
+       14. ANIMATIONS – no change
        ========================================= */
     .reveal-on-scroll {
         opacity: 0;
@@ -1095,7 +1233,7 @@
     }
 
     /* =========================================
-       14. RESPONSIVE BREAKPOINTS – adjusted for consistency
+       15. RESPONSIVE BREAKPOINTS – adjusted for consistency
        ========================================= */
     
     @media (min-width: 1024px) {
@@ -1119,6 +1257,28 @@
         .edu-sidebar {
             position: static; /* Disable sticky on tablet */
             margin-top: 2rem;
+        }
+        
+        /* Footer Adjustments */
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        .footer-brand {
+            grid-column: span 2;
+            text-align: center;
+        }
+        .footer-brand h3, .footer-brand p {
+            text-align: center;
+        }
+        .footer-heading::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .footer-links {
+            text-align: center;
+        }
+        .footer-links a {
+            justify-content: center;
         }
     }
 
@@ -1177,6 +1337,19 @@
         }
         .credential-info h4 { 
             text-align: center; 
+        }
+        
+        /* Footer Mobile Adjustments */
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .footer-brand {
+            grid-column: span 1;
+        }
+        .footer-bottom {
+            flex-direction: column;
+            gap: 1.5rem;
         }
     }
 
@@ -1392,7 +1565,7 @@
             <p class="subheadline delay-200">Strategic HR Professional | Crisis Workforce Management | International Recruitment | Organizational Transformation</p>
             <div class="cta-container delay-300">
                 <!-- LinkedIn Button Highlighted (Accent/Gold Background) -->
-                <a href="#" target="_blank" class="btn btn-accent">
+                <a href="https://www.linkedin.com/in/munir-zakaria-flnstpm-603318a8/?locale=%3D" target="_blank" class="btn btn-accent">
                     <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
                 </a>
                 <!-- Schedule Button Secondary (Blue Outline) -->
@@ -1766,13 +1939,13 @@
                     <a href="mailto:munirmoh@gmail.com">munirmoh@gmail.com</a>
                 </div>
 
-                <!-- Phone Card -->
+                <!-- Phone Card - UPDATED PHONE NUMBER -->
                 <div class="contact-card-item">
                     <div class="contact-icon-large">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <h4>Phone</h4>
-                    <a href="tel:+2499123371234">+249 912 337 [1234]</a>
+                    <a href="tel:+249912337844">+249 91 233 7844</a>
                 </div>
             </div>
 
@@ -1785,18 +1958,62 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer style="background: var(--primary); padding: 3rem 0; color: white; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
-    <div class="container" style="padding: 0;">
-        <div style="margin-bottom: 1.5rem;">
-            <a href="#" class="footer-social-link" target="_blank" aria-label="LinkedIn" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s;">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="mailto:munirmoh@gmail.com" class="footer-social-link" aria-label="Email" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s;">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
+<!-- REDESIGNED FOOTER SECTION -->
+<footer>
+    <div class="container">
+        <!-- Footer Grid Layout -->
+        <div class="footer-grid">
+            <!-- Column 1: Branding & Tagline -->
+            <div class="footer-brand">
+                <h3>Munir<span>Zakaria</span></h3>
+                <p>
+                    Senior Human Resources Leader specializing in strategic workforce planning, crisis management, and international recruitment for humanitarian missions.
+                </p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-links-wrapper">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#profile"><i class="fa-solid fa-user"></i> Professional Profile</a></li>
+                    <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+                    <li><a href="#skills"><i class="fa-solid fa-lightbulb"></i> Expertise</a></li>
+                    <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div class="footer-contact-wrapper">
+                <h4 class="footer-heading">Get in Touch</h4>
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span style="color: rgba(255,255,255,0.7);">munirmoh@gmail.com</span>
+                </div>
+                <!-- UPDATED PHONE NUMBER IN FOOTER -->
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span style="color: rgba(255,255,255,0.7);">+249 91 233 7844</span>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span style="color: rgba(255,255,255,0.7);">Port Sudan, Sudan</span>
+                </div>
+            </div>
         </div>
-        <p style="color: rgba(255,255,255,0.4); margin: 0; font-size: 0.85rem;">© 2026 Munir Zakaria. All Rights Reserved.</p>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 Munir Zakaria. All Rights Reserved.</p>
+            
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/munir-zakaria-flnstpm-603318a8/?locale=%3D" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:munirmoh@gmail.com" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </footer>
 
