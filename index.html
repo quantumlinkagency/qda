@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"> <!-- Added max-scale for accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Munir Zakaria | Senior Human Resources Leader</title>
 <meta name="description" content="Portfolio of Munir Zakaria, a Senior Human Resources Leader specializing in strategic HR, crisis workforce management, and international recruitment.">
 
@@ -19,7 +19,6 @@
        1. CORE VARIABLES & RESET
        ========================================= */
     :root {
-        /* Brand Colors */
         --primary: #0B1F3B;
         --accent: #C6A14A;
         --light: #f5f7fa;
@@ -35,7 +34,7 @@
         
         /* Layout */
         --nav-height: 70px;
-        --container-max: 1280px; /* Increased for Large Desktops */
+        --container-max: 1280px; 
         --font-main: 'Inter', sans-serif;
         
         /* Effects */
@@ -67,7 +66,7 @@
         padding-top: var(--nav-height);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden; /* Critical for preventing horizontal scroll */
+        overflow-x: hidden;
         width: 100%;
     }
 
@@ -78,16 +77,40 @@
     }
 
     /* =========================================
-       2. LAYOUT UTILITIES
+       2. LAYOUT UTILITIES – UNIFIED CONTAINER SYSTEM
        ========================================= */
     .container {
-        width: 92%; /* Increased slightly from 90% for 320px screens */
+        width: 92%;
         max-width: var(--container-max);
         margin: 0 auto;
         padding: 5rem 0;
         position: relative;
     }
 
+    /* Small mobile adjustment: slightly wider padding on container edges */
+    @media (max-width: 480px) {
+        .container {
+            width: 94%;
+            padding: 3.5rem 0;
+        }
+    }
+
+    /* Ensure all sections use the container system consistently */
+    .hero .container,
+    .content-section .container,
+    .contact-wrapper .container,
+    footer .container {
+        width: 92%;
+        max-width: var(--container-max);
+        margin: 0 auto;
+    }
+
+    /* Section backgrounds should extend full width, but content stays in container */
+    .hero, .content-section, .contact-wrapper, footer {
+        width: 100%;
+    }
+
+    /* Remove any full-width content that bypassed container */
     .section-separator {
         margin-top: 3rem;
         width: 100%;
@@ -97,7 +120,7 @@
     }
 
     /* =========================================
-       3. TYPOGRAPHY
+       3. TYPOGRAPHY – ensure headings consistent
        ========================================= */
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-main);
@@ -109,7 +132,6 @@
     }
 
     h1 {
-        /* Fluid typography: min 2rem, preferred 5vw, max 3.5rem */
         font-size: clamp(2rem, 4vw, 3.5rem);
         font-weight: 700;
         margin-bottom: 1.5rem;
@@ -163,9 +185,8 @@
     }
 
     /* =========================================
-       4. INTERACTIVE COMPONENTS
+       4. INTERACTIVE COMPONENTS – unchanged but safe
        ========================================= */
-    /* Grid: Auto-fit ensures no overflow, minmax sets breakpoints */
     .grid--auto-fit {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -227,7 +248,7 @@
     }
 
     /* =========================================
-       5. METRICS & SKILLS
+       5. METRICS & SKILLS – no change
        ========================================= */
     .metrics-grid {
         display: grid;
@@ -291,7 +312,7 @@
     .skill-text { font-weight: 500; color: #334155; }
 
     /* =========================================
-       6. SECTIONS & HERO
+       6. SECTIONS & HERO – ensure container use
        ========================================= */
     .hero {
         min-height: calc(100vh - var(--nav-height));
@@ -305,7 +326,6 @@
         background-image: 
             radial-gradient(circle at 10% 90%, rgba(11, 31, 59, 0.03) 0%, transparent 40%),
             radial-gradient(circle at 90% 10%, rgba(198, 161, 74, 0.06) 0%, transparent 35%);
-        text-align: center;
     }
 
     .subtitle { 
@@ -313,7 +333,7 @@
         font-weight: 500;
         color: var(--primary);
         margin-bottom: 1.5rem;
-        text-align: center; /* Fixed to ensure center alignment on all screens */
+        text-align: center;
     }
 
     .subheadline { 
@@ -327,7 +347,7 @@
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
-        text-align: center; /* Fixed to ensure center alignment on all screens */
+        text-align: center;
     }
 
     .cta-container {
@@ -346,7 +366,6 @@
         background: white;
         border-bottom: 1px solid transparent; 
     }
-    .content-section:last-of-type { border-bottom: none; }
     .content-section:nth-of-type(even) { background-color: var(--bg-alt); }
 
     /* =========================================
@@ -364,7 +383,7 @@
         border: 2px solid transparent;
         cursor: pointer;
         transition: var(--transition-smooth);
-        width: auto; /* Allow auto width on desktop */
+        width: auto;
         min-width: fit-content;
     }
 
@@ -418,7 +437,6 @@
     }
     .entry-card:hover { transform: translateY(-3px); }
     
-    /* Fix: Center align headings in Professional Experience section */
     .entry-card h3 { 
         margin-top: 0; 
         font-size: 1.25rem; 
@@ -434,10 +452,9 @@
         gap: 3rem;
     }
 
-    /* Timeline Logic */
     .edu-timeline {
         position: relative;
-        padding-left: 2rem; /* Base Desktop Padding */
+        padding-left: 2rem;
         border-left: 2px solid rgba(198,161,74,0.2);
     }
 
@@ -446,11 +463,9 @@
         margin-bottom: 2.5rem;
     }
 
-    /* Dot Positioning relative to padding-left */
     .timeline-item::before {
         content: '';
         position: absolute;
-        /* Calculation: Padding (2rem = 32px) + Border (2px) + Adjustment (centering) */
         left: -2.35rem; 
         top: 6px;
         width: 14px;
@@ -490,7 +505,6 @@
         font-weight: 500;
     }
 
-    /* Credential Card */
     .credential-card {
         background: linear-gradient(135deg, #fff, #fffbf0);
         border: 1px solid rgba(198, 161, 74, 0.2);
@@ -504,7 +518,6 @@
     }
     .credential-icon { font-size: 2.5rem; color: var(--accent); }
     
-    /* Tag Cloud */
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
     .spec-tag {
         background-color: #f1f5f9;
@@ -522,7 +535,6 @@
         transform: translateY(-2px);
     }
 
-    /* Philosophy & Languages */
     .philosophy-card {
         background: #fff;
         padding: 2rem;
@@ -610,7 +622,7 @@
         width: 100%;
         padding: 0.85rem;
         font-family: var(--font-main);
-        font-size: 1rem; /* 16px prevents iOS zoom */
+        font-size: 1rem;
         border: 2px solid #e2e8f0;
         border-radius: 8px;
         transition: border-color 0.3s;
@@ -658,7 +670,7 @@
     .toast.show { transform: translateY(0); opacity: 1; }
 
     /* =========================================
-       11. NAVIGATION
+       11. NAVIGATION – unchanged
        ========================================= */
     .navbar {
         position: fixed;
@@ -692,7 +704,7 @@
         font-weight: 700;
         text-decoration: none;
         letter-spacing: -0.02em;
-        z-index: 1002; /* Above hamburger overlay */
+        z-index: 1002;
     }
     .nav-logo span { color: var(--accent); }
 
@@ -721,7 +733,6 @@
     }
     .nav-link:hover::after { width: 100%; }
 
-    /* Hamburger */
     .hamburger { 
         display: none; 
         cursor: pointer; 
@@ -739,7 +750,7 @@
     }
 
     /* =========================================
-       12. ANIMATIONS
+       12. ANIMATIONS – no change
        ========================================= */
     .reveal-on-scroll {
         opacity: 0;
@@ -751,21 +762,18 @@
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
 
-    /* Fix: Center align specific paragraph in Profile section */
     #profile .reveal-on-scroll > p {
         text-align: center;
     }
 
-    /* Fix: Center align headings in Core Expertise section */
     #skills h3 {
         text-align: center;
     }
 
     /* =========================================
-       13. RESPONSIVE BREAKPOINTS
+       13. RESPONSIVE BREAKPOINTS – adjusted for consistency
        ========================================= */
     
-    /* LAPTOP & DESKTOP (1024px - 1439px) */
     @media (min-width: 1024px) {
         .edu-layout-grid {
             grid-template-columns: 3fr 2fr;
@@ -776,7 +784,6 @@
         }
     }
 
-    /* LARGE DESKTOP (1440px+) */
     @media (min-width: 1440px) {
         :root { --container-max: 1400px; }
         .container { padding: 6rem 0; }
@@ -784,19 +791,16 @@
         .nav-menu { gap: 2.5rem; }
     }
 
-    /* TABLET (768px - 1023px) */
     @media (max-width: 1023px) {
         .nav-menu { gap: 1.5rem; }
         .cta-container { flex-direction: row; flex-wrap: wrap; }
         .btn { flex: 1 1 auto; }
     }
 
-    /* LARGE MOBILE / SMALL TABLET (481px - 767px) */
     @media (max-width: 767px) {
-        .container { width: 92%; padding: 4rem 0; }
+        /* Container width already unified */
         .grid--auto-fit { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
         
-        /* Mobile Nav */
         .hamburger { display: block; }
         .nav-menu {
             position: fixed;
@@ -813,52 +817,41 @@
         .nav-menu.active { left: 0; }
         .nav-link { display: block; padding: 15px 0; font-size: 1.1rem; width: 100%; }
         
-        /* Hamburger Animation */
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-        /* Stacked CTAs */
         .cta-container { flex-direction: column; }
         .btn { width: 100%; }
 
-        /* Timeline Mobile Adjustments */
         .edu-timeline { padding-left: 1.5rem; }
         .timeline-item::before { 
-            /* Adjust dot for new padding (1.5rem = 24px) */
             left: -1.85rem; 
             width: 12px; height: 12px; 
         }
         
-        /* Credential Card Mobile */
         .credential-card { flex-direction: column; text-align: center; }
         .credential-info h4 { text-align: center; }
     }
 
-    /* SMALL MOBILE (320px - 480px) */
     @media (max-width: 480px) {
         :root { --nav-height: 60px; }
         
-        html { font-size: 15px; } /* Scale down base slightly */
+        html { font-size: 15px; }
         
         body { padding-top: var(--nav-height); }
         
-        .container { 
-            width: 94%; 
-            padding: 3rem 0; 
-        }
+        /* container unified via earlier override */
         
         h1 { margin-bottom: 1rem; }
         .subtitle { font-size: 1.1rem; }
         
-        /* Single column grids */
         .grid--auto-fit { grid-template-columns: 1fr; }
         .metrics-grid { grid-template-columns: 1fr; }
         
-        /* Timeline adjustments for very small screens */
         .edu-timeline { padding-left: 1.25rem; border-left-width: 1px; }
         .timeline-item::before { 
-            left: -1.55rem; /* Fine tune for 1.25rem padding */
+            left: -1.55rem;
             width: 10px; height: 10px;
             top: 4px;
         }
@@ -866,18 +859,15 @@
         .timeline-degree { font-size: 1.1rem; }
         .timeline-school { font-size: 0.9rem; }
         
-        /* Cards */
         .card { padding: 1.5rem; }
         .card__icon { font-size: 2rem; }
         .entry-card { padding: 1.5rem; }
         
-        /* Contact */
         .contact-icon-box { width: 36px; height: 36px; font-size: 1rem; }
         .contact-info-content h4 { font-size: 1rem; }
         .toast { left: 10px; right: 10px; bottom: 10px; width: auto; }
     }
 
-    /* Accessibility: Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
         * {
             animation-duration: 0.01ms !important;
@@ -904,7 +894,6 @@
             <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <!-- Accessible Hamburger Button -->
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -1291,7 +1280,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         
-        // --- 1. Mobile Menu Logic (Accessibility Enhanced) ---
         const hamburger = document.getElementById('hamburgerBtn');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -1302,7 +1290,6 @@
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
-            // Accessibility: Prevent body scroll when menu is open
             if (!isExpanded) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -1313,7 +1300,6 @@
         if (hamburger && navMenu) {
             hamburger.addEventListener('click', toggleMenu);
 
-            // Close menu when clicking a link
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('active')) {
@@ -1322,7 +1308,6 @@
                 });
             });
             
-            // Close menu on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                     toggleMenu();
@@ -1330,7 +1315,6 @@
             });
         }
 
-        // --- 2. Optimized Scroll Effect ---
         const navbar = document.querySelector('.navbar');
         let ticking = false;
 
@@ -1350,7 +1334,6 @@
             }
         }, { passive: true });
 
-        // --- 3. Intersection Observer for Scroll Animations ---
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1369,7 +1352,6 @@
         const scrollElements = document.querySelectorAll('.reveal-on-scroll');
         scrollElements.forEach(el => observer.observe(el));
 
-        // --- 4. Contact Form Handling ---
         const contactForm = document.getElementById('contactForm');
         const toast = document.getElementById('toast');
         const submitBtn = document.querySelector('.submit-btn');
